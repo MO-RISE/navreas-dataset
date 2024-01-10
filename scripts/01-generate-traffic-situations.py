@@ -31,6 +31,9 @@ for input_path in INPUT_PATH.glob("*"):
     if input_path.is_file():
         continue
 
+    # if not input_path.stem == "spatial_understanding_set":
+    #     continue
+
     generated_path = GENERATED_PATH / input_path.stem
     generated_path.mkdir(parents=True, exist_ok=True)
 
@@ -48,5 +51,7 @@ for input_path in INPUT_PATH.glob("*"):
         for fig_num in plt.get_fignums():
             plt.figure(fig_num)
             plt.savefig(generated_path / f"traffic_situation_{fig_num:02d}.png")
+
+        plt.close("all")
 
     write_traffic_situations_to_json_file(generated_traffic_situations, write_folder=generated_path)
