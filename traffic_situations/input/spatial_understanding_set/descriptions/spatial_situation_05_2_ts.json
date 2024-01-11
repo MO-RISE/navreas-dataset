@@ -1,0 +1,28 @@
+{
+  "title": "AP-ST, AP-PT",
+  "common_vector": 10.0,
+  "own_ship": {
+    "start_pose": {
+      "position": {
+        "north": 0.0,
+        "east": 0.0
+      },
+      "speed": 10.0,
+      "course": 0.0
+    }
+  },
+  "encounter": [
+    {
+      "desired_encounter_type": "noRiskCollision",
+      "beta": 50,
+      "relative_speed": 1.5,
+      "vector_time": -70.0
+    },
+    {
+      "desired_encounter_type": "noRiskCollision",
+      "beta": -80,
+      "relative_speed": 2.0,
+      "vector_time": -10.0
+    }
+  ]
+}
