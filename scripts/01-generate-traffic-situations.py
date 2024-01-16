@@ -1,3 +1,4 @@
+import sys
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -17,9 +18,13 @@ trafficgen.ship_traffic_generator.read_situation_files = sorted_read_situation_f
 
 from trafficgen import (
     generate_traffic_situations,
-    plot_traffic_situations,
     write_traffic_situations_to_json_file,
 )
+
+parent_dir = Path(__file__).resolve().parent.parent
+sys.path.append(str(parent_dir))
+
+from utils.plotting import plot_traffic_situations
 
 BASE_PATH = Path(__file__).parent.parent / "traffic_situations"
 INPUT_PATH = BASE_PATH / "input"
@@ -44,9 +49,18 @@ for input_path in INPUT_PATH.glob("*"):
         settings_file=input_path / "encounter_settings.json",
     )
 
+    # Monkey fix for negative speed in spatial situations to create
+    # situations with no risk of collision.
+    for situation in generated_traffic_situations:
+        for target_ship in situation.target_ship:
+            if target_ship.start_pose.speed < 0.0:
+                target_ship.start_pose.speed *= -1
+                target_ship.start_pose.course += 180
+                target_ship.start_pose.course %= 360
+
     with plt.ion():
         # Single plot for every situation
-        plot_traffic_situations(generated_traffic_situations, 1, 1)
+        plot_traffic_situations(generated_traffic_situations, 1, 1, max_value=8.0)
 
         for fig_num in plt.get_fignums():
             plt.figure(fig_num)
