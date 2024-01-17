@@ -5,7 +5,28 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-def quesiton_llm(question, llm_model) -> requests.Response:
+# def evaluate_llm(file, llm_model):
+#     with open(file,'r') as file:
+#         for line in file:
+#             question = json.loads(line.strip())
+#             response = prompt_llm(question['prompt'], )
+
+
+def check_prompt(prompt):
+    assert isinstance(prompt,list)
+    assert len(prompt) == 2
+    assert 'role' in prompt[0]
+    assert 'content' in prompt[0]
+    assert prompt[0]['role'] == 'system'
+    assert 'role' in prompt[1]
+    assert 'content' in prompt[1]
+    assert prompt[1]['role'] == 'user'
+
+
+def prompt_llm(prompt, llm_model, alternative_system_prompt=None, temperature=0.2, seed=154544424155):
+        check_prompt(prompt)
+        if alternative_system_prompt != None:
+             prompt[0]['content'] = alternative_system_prompt
         response: requests.Response = requests.post(
             url="https://openrouter.ai/api/v1/chat/completions",
             headers={
@@ -14,17 +35,31 @@ def quesiton_llm(question, llm_model) -> requests.Response:
             data=json.dumps(
                 {
                     "model": llm_model,
-                    "messages": question['input'],
+                    "messages": prompt,
+                    "temperature": temperature,
+                    "seed": seed
                 }
             ),
         )
         response.raise_for_status()
-        data = response.json()
-        answer = data["choices"][0]["message"]['content']
-        print(answer)
-        return 1 if question['ideal'] in answer else 0
+        reply = response.json()['choices'][0]['message']['content']
+        return reply
 
 
-question ={'input': [{'role': 'system', 'content': 'You are an expert mariner and navigator.'}, {'role': 'user', 'content': "Nautical situation: The own ship, called 'BASTO VI', is a 122.0 meters long Passenger/Ro-Ro Cargo Ship moving at a speed of 10.0 knots on a course of 0.0 degrees. Around the own ship there are 6 target ships. Target 1, 'GOO', a Passenger/Ro-Ro Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0°. Target ship 1 lies 0.6 nautical miles off, bearing 16.7° relative. Target 2, 'FOO', a Fishing of 178.0 meters, making 12.0 knots on a course of 180.0°. Target ship 2 lies 0.2 nautical miles off, bearing 270.0° relative. Target 3, 'BAR', a General Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0°. Target ship 3 lies 0.5 nautical miles off, bearing 180.0° relative. Target 4, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0°. Target ship 4 lies 0.6 nautical miles off, bearing 63.4° relative. Target 5, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0°. Target ship 5 lies 1.0 nautical miles off, bearing 270.0° relative. Target 6, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0°. Target ship 6 lies 0.8 nautical miles off, bearing 45.0° relative. Question: On which side of the own ship is the target ship 6? Answer only either 'starboard', 'portside', or 'neither'."}], 'ideal': 'starboard'}
-point = quesiton_llm(question,'openai/gpt-3.5-turbo-16k')
-print(point)
+def check_reply(reply, answers):
+    reply = reply.lower()
+    for answer in answers:
+        if answer in reply:
+            return True
+    return False
+
+
+question ={'prompt': [{'role': 'system', 'content': 'You are an expert mariner and navigator.'}, {'role': 'user', 'content': "Nautical situation: The own ship, called 'BASTO VI', is a 122.0 meters long Passenger/Ro-Ro Cargo Ship moving at a speed of 10.0 knots on a course of 0.0 degrees. Around the own ship there are 6 target ships. Target 1, 'GOO', a Passenger/Ro-Ro Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0°. Target ship 1 lies 0.6 nautical miles off, bearing 16.7° relative. Target 2, 'FOO', a Fishing of 178.0 meters, making 12.0 knots on a course of 180.0°. Target ship 2 lies 0.2 nautical miles off, bearing 270.0° relative. Target 3, 'BAR', a General Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0°. Target ship 3 lies 0.5 nautical miles off, bearing 180.0° relative. Target 4, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0°. Target ship 4 lies 0.6 nautical miles off, bearing 63.4° relative. Target 5, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0°. Target ship 5 lies 1.0 nautical miles off, bearing 270.0° relative. Target 6, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0°. Target ship 6 lies 0.8 nautical miles off, bearing 45.0° relative. Question: On which side of the own ship is the target ship 6? Answer only either 'starboard', 'portside', or 'neither'."}], 'answers': ['starboard']}
+reply = prompt_llm(question['prompt'],'openai/gpt-3.5-turbo-16k')
+print(reply)
+print(check_reply(reply, question['answers']))
+# Dumb and not robust way to check if the answer is correct
+
+
+
+    

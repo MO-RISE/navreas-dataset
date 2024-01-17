@@ -66,17 +66,17 @@
         },
         {
             "static": {
-                "length": 122.0,
-                "width": 20.0,
-                "height": 8.0,
-                "speed_max": 17.0,
-                "mmsi": 257845600,
-                "name": "BASTO IV",
+                "length": 178.0,
+                "width": 30.0,
+                "height": 30.0,
+                "speed_max": 21.0,
+                "mmsi": 219945000,
+                "name": "BASTO VI",
                 "ship_type": "Passenger/Ro-Ro Cargo Ship"
             },
             "start_pose": {
-                "speed": -20.0,
-                "course": 129.5,
+                "speed": 20.0,
+                "course": 309.5,
                 "position": {
                     "north": 839.87591791147,
                     "east": -4763.1730239860535,

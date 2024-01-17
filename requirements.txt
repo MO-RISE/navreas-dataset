@@ -1,3 +1,4 @@
 git+https://github.com/dnv-opensource/ship-traffic-generator.git@ff03400c164852b1cbb7ad2cb0cc7e745c106281
 
-black==23.12.1
+black==23.12.1 
+python-dotenv

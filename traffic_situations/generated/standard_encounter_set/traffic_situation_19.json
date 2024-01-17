@@ -44,13 +44,13 @@
     "target_ship": [
         {
             "static": {
-                "length": 178.0,
-                "width": 30.0,
-                "height": 30.0,
-                "speed_max": 21.0,
-                "mmsi": 219945000,
-                "name": "BASTO VI",
-                "ship_type": "Passenger/Ro-Ro Cargo Ship"
+                "length": 50.0,
+                "width": 10.0,
+                "height": 8.0,
+                "speed_max": 15.0,
+                "mmsi": 257083180,
+                "name": "CANOLE",
+                "ship_type": "General Cargo Ship"
             },
             "start_pose": {
                 "speed": 6.0,
@@ -66,22 +66,22 @@
         },
         {
             "static": {
-                "length": 178.0,
-                "width": 30.0,
-                "height": 30.0,
-                "speed_max": 21.0,
-                "mmsi": 219945000,
-                "name": "BASTO VI",
-                "ship_type": "Passenger/Ro-Ro Cargo Ship"
+                "length": 50.0,
+                "width": 10.0,
+                "height": 8.0,
+                "speed_max": 15.0,
+                "mmsi": 257083180,
+                "name": "CANOLE",
+                "ship_type": "General Cargo Ship"
             },
             "start_pose": {
-                "speed": 16.0,
-                "course": 358.1,
+                "speed": 15.0,
+                "course": 358.3,
                 "position": {
-                    "north": -2588.8648485589842,
-                    "east": 226.49632564966922,
-                    "latitude": 58.740208,
-                    "longitude": 10.494568
+                    "north": -2157.7302797647667,
+                    "east": 188.7769384260376,
+                    "latitude": 58.744078,
+                    "longitude": 10.493916
                 }
             },
             "id": 2

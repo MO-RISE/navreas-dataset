@@ -23,10 +23,12 @@ The dataset cosnsist of multiple choice questions in JSON:
 - A ahead or astern?
 - Moving or standing still?
 - Approaching or receding?
-- Starboard turn or portside turn?
+- Starboard turn or portside turn*?
 - CPA? TCPA?
 - Will cross ahead or astern?
 - Bow and stern crossing distance?
+
+*Missing at the moment
 
 **Scene understanding**
 
