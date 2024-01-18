@@ -36,8 +36,7 @@ The dataset cosnsist of multiple choice questions in JSON:
 - Determine if there is risk of collision (Yes or No, following Rule 8)
 - If yes, determine the type of COLREG situation (head-on, crossing, overtaking).
 - Determine which vessel should give way.
-- Restricted waters, for who?
-- Traffic separation scheme?
+
 
 **Actions to be taken according to COLREG and good seamanship (Rule 2, 8, 13, 14, and 15)**
 

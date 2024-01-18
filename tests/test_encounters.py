@@ -30,15 +30,15 @@ def test_get_cpa():
     assert tcpa == 0.0
     assert dcpa == 300.0
 
-def test_get_starboard_or_portside():
-    assert get_starboard_or_portside(situation.own_ship, situation.target_ship[0]) == 'starboard'
-    assert get_starboard_or_portside(situation.own_ship, situation.target_ship[1]) == 'portside'
-    assert get_starboard_or_portside(situation.own_ship, situation.target_ship[2]) == 'neither'
+def test_get_starboard_or_portside_location():
+    assert get_starboard_or_portside_location(situation.own_ship, situation.target_ship[0]) == 'starboard'
+    assert get_starboard_or_portside_location(situation.own_ship, situation.target_ship[1]) == 'portside'
+    assert get_starboard_or_portside_location(situation.own_ship, situation.target_ship[2]) == 'neither'
 
-def test_get_ahead_or_astern():
-    assert get_ahead_or_astern(situation.own_ship, situation.target_ship[0]) == 'ahead'
-    assert get_ahead_or_astern(situation.own_ship, situation.target_ship[1]) == 'neither'
-    assert get_ahead_or_astern(situation.own_ship, situation.target_ship[2]) == 'astern'
+def test_get_ahead_or_astern_location():
+    assert get_ahead_or_astern_location(situation.own_ship, situation.target_ship[0]) == 'ahead'
+    assert get_ahead_or_astern_location(situation.own_ship, situation.target_ship[1]) == 'neither'
+    assert get_ahead_or_astern_location(situation.own_ship, situation.target_ship[2]) == 'astern'
 
 def test_get_approaching_or_receding():
     assert get_approaching_or_receding(situation.own_ship, situation.target_ship[0]) == 'approaching'
@@ -51,8 +51,8 @@ def test_get_bow_crossing_range():
     assert None == get_bow_crossing_range(situation.own_ship, situation.target_ship[4])
     assert 0.0 == get_bow_crossing_range(situation.own_ship, situation.target_ship[5])
  
-def test_get_bow_or_stern_crossing():
-    assert 'neither' == get_bow_or_stern_crossing(situation.own_ship, situation.target_ship[2])
-    assert 'stern' == get_bow_or_stern_crossing(situation.own_ship, situation.target_ship[3]) 
-    assert 'neither' == get_bow_or_stern_crossing(situation.own_ship, situation.target_ship[4])
-    assert 'neither' == get_bow_or_stern_crossing(situation.own_ship, situation.target_ship[5])
+def test_get_ahead_or_astern_crossing():
+    assert 'neither' == get_ahead_or_astern_crossing(situation.own_ship, situation.target_ship[2])
+    assert 'stern' == get_ahead_or_astern_crossing(situation.own_ship, situation.target_ship[3]) 
+    assert 'neither' == get_ahead_or_astern_crossing(situation.own_ship, situation.target_ship[4])
+    assert 'neither' == get_ahead_or_astern_crossing(situation.own_ship, situation.target_ship[5])

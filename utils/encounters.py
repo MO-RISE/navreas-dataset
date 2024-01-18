@@ -4,11 +4,19 @@ Functions to analyse encouters in marine traffic situations
 
 from typing import Tuple  
 import numpy as np
-from trafficgen import calculate_relative_bearing
+from trafficgen import calculate_relative_bearing, determine_colreg
 from trafficgen.types import Ship, TargetShip
 
 TO_KNOTS = 3600 / 1852
 TO_MS = 1852 / 3600
+
+THETA13_CRITERIA= 67.5,
+THETA14_CRITERIA= 5.0,
+THETA15_CRITERIA= 5.0,
+THETA15 = [
+    112.5,
+    247.5
+]
     
 def _get_velocity_vector(ship: Ship):
     speed = ship.start_pose.speed * TO_MS
@@ -21,9 +29,6 @@ def _get_position_vector(ship):
     return np.array([ship.start_pose.position.east, ship.start_pose.position.north])
 
 def get_relative_position(own_ship: Ship, target_ship: TargetShip):
-    """
-    Get the relative location of Target ship with respect to Own Ship in Cartesian coordinates.
-    """
     target_pos = _get_position_vector(target_ship)
     own_pos = _get_position_vector(own_ship)
     return target_pos - own_pos
@@ -75,7 +80,7 @@ def get_cpa(own_ship: Ship, target_ship: Ship) -> Tuple[float, float]:
     return dcpa, tcpa
 
 
-def get_starboard_or_portside(own_ship: Ship, target_ship: TargetShip):
+def get_starboard_or_portside_location(own_ship: Ship, target_ship: TargetShip):
     """Get if the Target ship is on the starboard or portside of the own ship
     """
     alfa = get_relative_bearing(own_ship, target_ship)
@@ -86,7 +91,7 @@ def get_starboard_or_portside(own_ship: Ship, target_ship: TargetShip):
     return 'portside'
 
 
-def get_ahead_or_astern(own_ship: Ship, target_ship: TargetShip):
+def get_ahead_or_astern_location(own_ship: Ship, target_ship: TargetShip):
     """Get if the Target ship is on the ahead or astern of the own ship
     """
     alfa = get_relative_bearing(own_ship, target_ship)
@@ -130,13 +135,69 @@ def get_bow_crossing_range(own_ship: Ship, target_ship: TargetShip):
     sign = 1 if u < t else -1
     return sign*np.round(np.linalg.norm(i - k),2)
     
-def get_bow_or_stern_crossing(own_ship: Ship, target_ship: TargetShip):
+def get_ahead_or_astern_crossing(own_ship: Ship, target_ship: TargetShip):
     
     bcr = get_bow_crossing_range(own_ship, target_ship)
 
     if bcr == None or bcr == 0.0:
         return 'neither'
     if bcr > 0.0:
-        return 'bow'
-    return 'stern'
+        return 'ahead'
+    return 'astern'
 
+
+def get_risk_of_collision(own_ship: Ship, target_ship: TargetShip):
+    dcpa, tcpa = get_cpa(own_ship, target_ship)
+    if tcpa < 0.0:
+        return 'no'
+    if dcpa >= own_ship.static.length*10:
+        return 'no'
+    return 'yes'
+
+
+def get_colreg_encounter_type(own_ship, target_ship):
+    beta, alpha = calculate_relative_bearing(
+        own_ship.start_pose.position,
+        own_ship.start_pose.course,
+        target_ship.start_pose.position,
+        target_ship.start_pose.course
+    )
+    encounter_type = determine_colreg(
+        alpha,
+        beta,
+        THETA13_CRITERIA,
+        THETA14_CRITERIA,
+        THETA15_CRITERIA,
+        THETA15
+    )
+   
+    if 'overtaking' in encounter_type.value:
+        return 'overtaking'
+    if 'crossing' in encounter_type.value:
+        return 'crossing'
+    if 'head-on' in encounter_type.value:
+        return 'head-on'
+    return 'neither'
+    
+def get_stand_on_ship(own_ship, target_ship):
+    beta, alpha = calculate_relative_bearing(
+        own_ship.start_pose.position,
+        own_ship.start_pose.course,
+        target_ship.start_pose.position,
+        target_ship.start_pose.course
+    )
+    encounter_type = determine_colreg(
+        alpha,
+        beta,
+        THETA13_CRITERIA,
+        THETA14_CRITERIA,
+        THETA15_CRITERIA,
+        THETA15
+    )
+    if 'give-way' in encounter_type.value: 
+        return 'target ship'
+    if 'stand-on' in encounter_type.value:
+        return 'own ship'
+    return 'neither'
+    
+   

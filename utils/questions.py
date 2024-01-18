@@ -1,14 +1,9 @@
+import shutil
+from pathlib import Path
 from .encounters import *
-from trafficgen.types import Position, Ship, Situation, TargetShip
-from trafficgen import calculate_relative_bearing
-
-# {'question': "asfsadfasf 1) ",
-#  'answer':1}
-# def generate_question()
 
 
-
-def make_question(system_prompt, user_prompt, answers):
+def make_question(system_prompt, user_prompt, answers, context_image_path):
     question = {}
     question['prompt'] = [
         {"role":"system",
@@ -16,9 +11,8 @@ def make_question(system_prompt, user_prompt, answers):
         {"role":"user",
             "content": user_prompt}]
     question['answers'] = answers if isinstance(answers,list) else [answers]
+    question['context_image_path'] = context_image_path
     return question
-
-
 
 def generate_situation_description(situation, nautical_phrasing=True):
 
@@ -55,40 +49,25 @@ def generate_situation_description(situation, nautical_phrasing=True):
             description += f" Target ship {target_id}, called '{target_name}', is a {target_length} meters long {target_type} moving at a speed of {target_speed} knots on a course of {target_course} degrees.  This target ship {target_id} has a range of {target_range} nautical miles and relative bearing of {target_relative_bearing} degrees with respect to the own ship."
     return description.strip()
 
-def generate_spatial_reasoning_questions(situation):
+
+def copy_question_images(source_directory, target_directory, prefix):
+
+    source = Path(source_directory)
+    target = Path(target_directory)
     
+    # Create the target directory if it doesn't exist
+    target.mkdir(parents=True, exist_ok=True)
 
-    encounters = [(situation.own_ship, target_ship) for target_ship in situation.target_ship]
-    
-    questions = []
+    # Define image file extensions
+    image_extensions = ['.jpg', '.png', '.jpeg']
 
-    for own_ship, target_ship in encounters:
+    # Iterate over image files in the source directory
+    for file_path in source.iterdir():
+        if file_path.is_file() and file_path.suffix.lower() in image_extensions:
+            # Construct new filename with suffix
+            new_filename = prefix + file_path.stem + file_path.suffix
+            new_file_path = target / new_filename
 
-        # Starboard or portside
-        question = f"""Is the target ship {target_ship.id} to the starboard or portside 
-        of the own ship? \n 
-        
-        """
-        side = get_starboard_or_portside(own_ship, target_ship)
-        print(side)
+            # Copy the file
+            shutil.copy(file_path, new_file_path)
 
-
-
-# def determine_colreg_type(own_ship: Ship, target_ship: TargetShip):
-#     alfa, beta = get_relative_bearing(own_ship, target_ship)
-#     theta13_criteria = 67.5,
-#     theta14_criteria = 5.0,
-#     theta15_criteria = 5.0,
-#     theta15 = [
-#         112.5,
-#         247.5
-#     ]
-#     colreg_type = determine_colreg(
-#         alpha,
-#         beta,
-#         theta13_criteria,
-#         theta14_criteria,
-#         theta15_criteria,
-#         theta15,
-#     )
-#     return colreg_type
