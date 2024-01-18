@@ -2,3 +2,5 @@ git+https://github.com/dnv-opensource/ship-traffic-generator.git@ff03400c164852b
 
 black==23.12.1 
 python-dotenv
+tqdm
+seaborn
