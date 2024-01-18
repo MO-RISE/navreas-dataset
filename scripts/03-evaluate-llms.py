@@ -48,7 +48,6 @@ def prepare_prompts(questions, llm):
     answers = []
     for question in questions:
         prompt = question["prompt"]
-
         if llm in args.use_images and (image_path := question.get("image", False)):
             prompt = include_image_in_prompt(prompt, image_path)
 
@@ -149,8 +148,8 @@ def evaluate_llms():
 
             results[path.stem].update({llm: {"score": score, "details": details}})
 
-    if args.output_details is not None:
-        with args.output_details.open("w") as f_handle:
+        results_file = args.output_path/'results.json'
+        with results_file.open("w") as f_handle:
             json.dump(results, f_handle, sort_keys=True, indent=4)
 
     scopes = list(results.keys())
@@ -169,7 +168,11 @@ def evaluate_llms():
     )
     ax.set(xlabel="Scope", ylabel="LLM", title="Percentage of correct answers")
 
-    plt.show()
+    # Save the plot to a file
+    # plot_file_path = args.plot_file  # Get the file path from command-line arguments
+    results_file = args.output_path/'results.png'
+    plt.savefig(results_file)
+
 
 
 if __name__ == "__main__":
@@ -220,10 +223,10 @@ if __name__ == "__main__":
     )
 
     parser.add_argument(
-        "--output-details",
+        "--output-path",
         type=Path,
-        default=None,
-        help="Path to output details about the evaluation in json format to. By default, no details will be outputted.",
+        default=Path('./'),
+        help="Path to output details about the evaluation in json format to. Defaults to current directory.",
     )
 
     parser.add_argument("--temperature", type=float, default=0.2)

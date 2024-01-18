@@ -12,10 +12,16 @@ from utils.questions import *
         
 GENERAL_QUESTION_TEMPLATE = "Marine traffic situation: {} Question: {}"
 
-SYSTEM_PROMPT = "You are an expert mariner and navigator."
+SYSTEM_PROMPT = """You are an expert mariner and navigator. 
+You will be given a marine traffic situation and a multiple choice question about it.
+Answer as concisely as possible using the provided choices. For example, if the choices are
+(A) starboard, (B) portside, and (C) neither, and the answer is starboard answer 'starboard'."""
+
+
 
 # SPATIAL REASONING QUESTIONS
 
+NUMBER_OF_SPATIAL_REASONING_QUESTIONS = 40
 
 SPATIAL_REASONING_ENCOUNTER_QUESTIONS = [
     (
@@ -50,27 +56,34 @@ SPATIAL_REASONING_ENCOUNTER_QUESTIONS = [
     )
 ]
 
-SET_NAME = 'spatial_reasoning'
+SET_NAME = 'spatial_relationship_and_estimation_of_motion'
 copy_question_images(parent_dir/'traffic_situations'/'generated'/'spatial_understanding_set', parent_dir/'questions',SET_NAME + '-')
 
 situations = read_situation_files(parent_dir/'traffic_situations'/'generated'/'spatial_understanding_set')
+counter = 0
 with open(parent_dir/'questions'/f'{SET_NAME}.jsonl','w') as file:
     for situation in situations:
         situation_description = generate_situation_description(situation)
         encounters = [(situation.own_ship, target_ship) for target_ship in situation.target_ship]
         for specific_question_text_template, answer_function in SPATIAL_REASONING_ENCOUNTER_QUESTIONS:
             for own_ship, target_ship in encounters:
+                counter += 1
+                if counter > NUMBER_OF_SPATIAL_REASONING_QUESTIONS:
+                    break
                 question_text = GENERAL_QUESTION_TEMPLATE.format(
                     situation_description,
                     specific_question_text_template.format(target_ship.id))
                 answer = answer_function(own_ship, target_ship)
-                context_image_path = SET_NAME + '-' + situation.input_file_name[:-5] + '.png'
-                question = make_question(SYSTEM_PROMPT, question_text, answer, context_image_path)
+                context_image_path = parent_dir/'questions'/f"{SET_NAME}-{situation.input_file_name[:-5]}.png"
+                question = make_question(SYSTEM_PROMPT, question_text, answer, str(context_image_path))
                 json.dump(question, file)
-                file.write('\n')
-
-# SCENE UDNERSSTANDING 
+                file.write('\n') 
                 
+
+# SCENE UNDERSTANDING 
+                
+NUMBER_OF_SCENE_UNDERSTANDING_QUESTIONS = 40
+
 SET_NAME = 'scene_understanding'
 
 SCENE_UNDERSTANDING_ENCOUNTER_QUESTIONS = [
@@ -105,18 +118,26 @@ SCENE_UNDERSTANDING_ENCOUNTER_QUESTIONS = [
     )
 ]
 
+copy_question_images(parent_dir/'traffic_situations'/'generated'/'standard_encounter_set', parent_dir/'questions',SET_NAME + '-')
 situations = read_situation_files(parent_dir/'traffic_situations'/'generated'/'standard_encounter_set')
+counter = 0
 with open(parent_dir/'questions'/f'{SET_NAME}.jsonl','w') as file:
     for situation in situations:
         situation_description = generate_situation_description(situation)
         encounters = [(situation.own_ship, target_ship) for target_ship in situation.target_ship]
         for specific_question_text_template, answer_function in SCENE_UNDERSTANDING_ENCOUNTER_QUESTIONS:
             for own_ship, target_ship in encounters:
+                counter += 1
+                if counter > NUMBER_OF_SCENE_UNDERSTANDING_QUESTIONS:
+                    break
                 question_text = GENERAL_QUESTION_TEMPLATE.format(
                     situation_description,
                     specific_question_text_template.format(target_ship.id))
                 answer = answer_function(own_ship, target_ship)
-                context_image_path = SET_NAME + '-' + situation.input_file_name[:-5] + '.png'
-                question = make_question(SYSTEM_PROMPT, question_text, answer, context_image_path)
+                context_image_path = parent_dir/'questions'/f"{SET_NAME}-{situation.input_file_name[:-5]}.png"
+                question = make_question(SYSTEM_PROMPT, question_text, answer, str(context_image_path))
                 json.dump(question, file)
                 file.write('\n')
+    
+
+

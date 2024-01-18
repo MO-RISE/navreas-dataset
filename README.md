@@ -1,21 +1,85 @@
 # NAVigation REASoning dataset
 
-A diagnostic dataset for navigation reasoning.
+A dataset for evaluating the navigation reasoning of Large Language Models (LLMs).
 
-The dataset cosnsist of multiple choice questions in JSON:
+The dataset consists of sets of questions about marine traffic situations in a JSONL format and a number of images describing the situations. The questions and images are located in the `questions` directory. The dataset includes the following sets of questions:
 
-```json
-[
-  {
-    "question": "An own ship has a target vessel at a relative bearing of 90 degrees. Which of the given terms best describe the location of the the target ship relative to the own ship.",
-    "choices": ["astern", "ahead", "at starboard", "at portside"],
-    "answer": "at starboard",
-    "image": ""
-  }
-]
+**`spatial_relationship_and_estimation_of_motion.jsonl`**
+
+Includes the following type of questions:
+- At starboard or at portside?
+- A ahead or astern?
+- Approaching or receding?
+- Will cross ahead or astern?
+
+**`scene_understanding.jsonl`**
+
+Includes the following type of questions:
+- Is there a risk of collision, yes or no?
+- What is the type of CORLEG encounter between the own ship and a target ship? 
+- In the encounter, which ship is the stand-on ship according to the COLREGS?
+
+The generation and usage of these dataset is done through three scripts locate in the `scripts` directory:
+
+**`01-generate-traffic-situations.py`**
+
+Generates traffic situations using [Traffic Generator](https://github.com/dnv-opensource/ship-traffic-generator). The situations are described with json files and images. Configuration files and generated files are found in the `traffic_situations` directory. 
+
+**`02-generate-mc-questions.py`**
+
+Generates the sets of questions based on the traffic situations using the functions in the `utils` directory. The generated questions are found in the `questions` directory.
+
+**`03-evaluate-llms.py`**
+
+Evaluates LLMs through a command line interface. See "Usage" below for more details.
+
+## Installation
+
+Clone the repository locally and add a `.env` in the main directory with following content:
+```
+OPENROUTER_API_KEY=<your OPEN Router key here>
 ```
 
-## Capabiltities tested
+### Devcontainer in VSCode. 
+
+The repository includes the configuration necessary to use a devcontainer in VS Code. For more information on how to use a devcontainer see [here](https://code.visualstudio.com/docs/devcontainers/tutorial).
+
+### Virutal environment
+
+Within a virtual environment (such as conda) install all the dependencies by running:
+```bash
+pip install -r requirements.txt
+```
+
+## Usage
+
+### Modify the questions
+
+Edit and run the script `02-generate-mc-questions.py`
+
+### Evaluation
+
+The evaluation is made through the `03-evaluate-llms.py` script/program. To obtain info on its use run:
+```bash
+python 03-evaluate-llms.py --help
+```
+
+The LLMs to be evaluted must be declared with the [model names used by Open Router](https://openrouter.ai/docs#models). For example, to evaluate OpenAI's GPT-3.5-turbo and Mistral 7B Instruct models with respect to both of the sets, the following command could be run:
+
+```bash
+python 03-evaluate-llms.py ../questions/spatial_relationship_and_estimation_of_motion.jsonl ../questions/scene_understanding.jsonl --llms  openai/gpt-3.5-turbo mistralai/mistral-7b-instruct
+```
+The results are saved as two files `results.json` and `results.png`. By default these images are saved to the current directory. To change the output path the flag `--output-path` can be used. 
+
+The flag `--use-images` specifies which models should include the images describing the marine traffic situations in the questions. For example to compare OpenAI's GPT-3.5-turbo, Mistral 7B Instruct models and OpenAI's GPT4 Vision the followin could should be run: 
+
+```bash
+ python 03-evaluate-llms.py ../questions/scene_understanding.jsonl --llms openai/gpt-4-vision-preview mistralai/mistral-7b-instruct openai/gpt-3.5-turbo --use-images openai/gpt-4-vision-preview
+```
+
+## TODO
+
+The following questions describe the roadmap of this dataset. Some of this questions are implemented other not. 
 
 **Spatial relationship and estimation of motion**
 
@@ -48,3 +112,4 @@ The dataset cosnsist of multiple choice questions in JSON:
 - Consider maneuvering capabilities.
 - Consider uncertainties.
 - Consider the restrictions and limitations of surrounding vessels.
+
