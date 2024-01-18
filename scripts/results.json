@@ -1,0 +1,537 @@
+{
+    "foo": {
+        "openai/gpt-3.5-turbo": {
+            "details": {
+                "did_pass": [
+                    true,
+                    false,
+                    false,
+                    true,
+                    false,
+                    true
+                ],
+                "questions": [
+                    {
+                        "answers": [
+                            "starboard"
+                        ],
+                        "prompt": [
+                            {
+                                "content": "You are an expert mariner and navigator.",
+                                "role": "system"
+                            },
+                            {
+                                "content": "Nautical situation: The own ship, called 'BASTO VI', is a 122.0 meters long Passenger/Ro-Ro Cargo Ship moving at a speed of 10.0 knots on a course of 0.0 degrees. Around the own ship there are 6 target ships. Target 1, 'GOO', a Passenger/Ro-Ro Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 1 lies 0.6 nautical miles off, bearing 16.7\u00b0 relative. Target 2, 'FOO', a Fishing of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 2 lies 0.2 nautical miles off, bearing 270.0\u00b0 relative. Target 3, 'BAR', a General Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 3 lies 0.5 nautical miles off, bearing 180.0\u00b0 relative. Target 4, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 4 lies 0.6 nautical miles off, bearing 63.4\u00b0 relative. Target 5, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 5 lies 1.0 nautical miles off, bearing 270.0\u00b0 relative. Target 6, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 6 lies 0.8 nautical miles off, bearing 45.0\u00b0 relative. Question: On which side of the own ship is the target ship 1? Answer only either 'starboard', 'portside', or 'neither'.",
+                                "role": "user"
+                            }
+                        ]
+                    },
+                    {
+                        "answers": [
+                            "portside"
+                        ],
+                        "prompt": [
+                            {
+                                "content": "You are an expert mariner and navigator.",
+                                "role": "system"
+                            },
+                            {
+                                "content": "Nautical situation: The own ship, called 'BASTO VI', is a 122.0 meters long Passenger/Ro-Ro Cargo Ship moving at a speed of 10.0 knots on a course of 0.0 degrees. Around the own ship there are 6 target ships. Target 1, 'GOO', a Passenger/Ro-Ro Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 1 lies 0.6 nautical miles off, bearing 16.7\u00b0 relative. Target 2, 'FOO', a Fishing of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 2 lies 0.2 nautical miles off, bearing 270.0\u00b0 relative. Target 3, 'BAR', a General Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 3 lies 0.5 nautical miles off, bearing 180.0\u00b0 relative. Target 4, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 4 lies 0.6 nautical miles off, bearing 63.4\u00b0 relative. Target 5, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 5 lies 1.0 nautical miles off, bearing 270.0\u00b0 relative. Target 6, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 6 lies 0.8 nautical miles off, bearing 45.0\u00b0 relative. Question: On which side of the own ship is the target ship 2? Answer only either 'starboard', 'portside', or 'neither'.",
+                                "role": "user"
+                            }
+                        ]
+                    },
+                    {
+                        "answers": [
+                            "neither"
+                        ],
+                        "prompt": [
+                            {
+                                "content": "You are an expert mariner and navigator.",
+                                "role": "system"
+                            },
+                            {
+                                "content": "Nautical situation: The own ship, called 'BASTO VI', is a 122.0 meters long Passenger/Ro-Ro Cargo Ship moving at a speed of 10.0 knots on a course of 0.0 degrees. Around the own ship there are 6 target ships. Target 1, 'GOO', a Passenger/Ro-Ro Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 1 lies 0.6 nautical miles off, bearing 16.7\u00b0 relative. Target 2, 'FOO', a Fishing of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 2 lies 0.2 nautical miles off, bearing 270.0\u00b0 relative. Target 3, 'BAR', a General Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 3 lies 0.5 nautical miles off, bearing 180.0\u00b0 relative. Target 4, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 4 lies 0.6 nautical miles off, bearing 63.4\u00b0 relative. Target 5, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 5 lies 1.0 nautical miles off, bearing 270.0\u00b0 relative. Target 6, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 6 lies 0.8 nautical miles off, bearing 45.0\u00b0 relative. Question: On which side of the own ship is the target ship 3? Answer only either 'starboard', 'portside', or 'neither'.",
+                                "role": "user"
+                            }
+                        ]
+                    },
+                    {
+                        "answers": [
+                            "starboard"
+                        ],
+                        "prompt": [
+                            {
+                                "content": "You are an expert mariner and navigator.",
+                                "role": "system"
+                            },
+                            {
+                                "content": "Nautical situation: The own ship, called 'BASTO VI', is a 122.0 meters long Passenger/Ro-Ro Cargo Ship moving at a speed of 10.0 knots on a course of 0.0 degrees. Around the own ship there are 6 target ships. Target 1, 'GOO', a Passenger/Ro-Ro Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 1 lies 0.6 nautical miles off, bearing 16.7\u00b0 relative. Target 2, 'FOO', a Fishing of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 2 lies 0.2 nautical miles off, bearing 270.0\u00b0 relative. Target 3, 'BAR', a General Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 3 lies 0.5 nautical miles off, bearing 180.0\u00b0 relative. Target 4, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 4 lies 0.6 nautical miles off, bearing 63.4\u00b0 relative. Target 5, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 5 lies 1.0 nautical miles off, bearing 270.0\u00b0 relative. Target 6, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 6 lies 0.8 nautical miles off, bearing 45.0\u00b0 relative. Question: On which side of the own ship is the target ship 4? Answer only either 'starboard', 'portside', or 'neither'.",
+                                "role": "user"
+                            }
+                        ]
+                    },
+                    {
+                        "answers": [
+                            "portside"
+                        ],
+                        "prompt": [
+                            {
+                                "content": "You are an expert mariner and navigator.",
+                                "role": "system"
+                            },
+                            {
+                                "content": "Nautical situation: The own ship, called 'BASTO VI', is a 122.0 meters long Passenger/Ro-Ro Cargo Ship moving at a speed of 10.0 knots on a course of 0.0 degrees. Around the own ship there are 6 target ships. Target 1, 'GOO', a Passenger/Ro-Ro Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 1 lies 0.6 nautical miles off, bearing 16.7\u00b0 relative. Target 2, 'FOO', a Fishing of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 2 lies 0.2 nautical miles off, bearing 270.0\u00b0 relative. Target 3, 'BAR', a General Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 3 lies 0.5 nautical miles off, bearing 180.0\u00b0 relative. Target 4, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 4 lies 0.6 nautical miles off, bearing 63.4\u00b0 relative. Target 5, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 5 lies 1.0 nautical miles off, bearing 270.0\u00b0 relative. Target 6, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 6 lies 0.8 nautical miles off, bearing 45.0\u00b0 relative. Question: On which side of the own ship is the target ship 5? Answer only either 'starboard', 'portside', or 'neither'.",
+                                "role": "user"
+                            }
+                        ]
+                    },
+                    {
+                        "answers": [
+                            "starboard"
+                        ],
+                        "image": "/workspaces/navreas-dataset/traffic_situations/generated/spatial_understanding_set/traffic_situation_08.png",
+                        "prompt": [
+                            {
+                                "content": "You are an expert mariner and navigator.",
+                                "role": "system"
+                            },
+                            {
+                                "content": "Nautical situation: The own ship, called 'BASTO VI', is a 122.0 meters long Passenger/Ro-Ro Cargo Ship moving at a speed of 10.0 knots on a course of 0.0 degrees. Around the own ship there are 6 target ships. Target 1, 'GOO', a Passenger/Ro-Ro Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 1 lies 0.6 nautical miles off, bearing 16.7\u00b0 relative. Target 2, 'FOO', a Fishing of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 2 lies 0.2 nautical miles off, bearing 270.0\u00b0 relative. Target 3, 'BAR', a General Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 3 lies 0.5 nautical miles off, bearing 180.0\u00b0 relative. Target 4, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 4 lies 0.6 nautical miles off, bearing 63.4\u00b0 relative. Target 5, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 5 lies 1.0 nautical miles off, bearing 270.0\u00b0 relative. Target 6, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 6 lies 0.8 nautical miles off, bearing 45.0\u00b0 relative. Question: On which side of the own ship is the target ship 6? Answer only either 'starboard', 'portside', or 'neither'.",
+                                "role": "user"
+                            }
+                        ]
+                    }
+                ],
+                "replies": [
+                    "Arr, me hearties! The target ship 1, 'GOO', be on the starboard side of the own ship, 'BASTO VI'.",
+                    "Arr, me hearties! Target ship 2, 'FOO', be lyin' on the starboard side o' the own ship, 'BASTO VI'.",
+                    "Arr, me hearties! Target ship 3 be on the starboard side of the own ship, 'BASTO VI'.",
+                    "Arr, me hearties! Target ship 4 be on the starboard side of the own ship, BASTO VI.",
+                    "Arr, me hearties! Target ship 5 be on the starboard side of the own ship, BASTO VI.",
+                    "Arr, me hearties! Target ship 6 be on the starboard side of the own ship, BASTO VI."
+                ]
+            },
+            "score": 50.0
+        },
+        "openai/gpt-3.5-turbo-16k": {
+            "details": {
+                "did_pass": [
+                    true,
+                    false,
+                    false,
+                    true,
+                    false,
+                    true
+                ],
+                "questions": [
+                    {
+                        "answers": [
+                            "starboard"
+                        ],
+                        "prompt": [
+                            {
+                                "content": "You are an expert mariner and navigator.",
+                                "role": "system"
+                            },
+                            {
+                                "content": "Nautical situation: The own ship, called 'BASTO VI', is a 122.0 meters long Passenger/Ro-Ro Cargo Ship moving at a speed of 10.0 knots on a course of 0.0 degrees. Around the own ship there are 6 target ships. Target 1, 'GOO', a Passenger/Ro-Ro Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 1 lies 0.6 nautical miles off, bearing 16.7\u00b0 relative. Target 2, 'FOO', a Fishing of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 2 lies 0.2 nautical miles off, bearing 270.0\u00b0 relative. Target 3, 'BAR', a General Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 3 lies 0.5 nautical miles off, bearing 180.0\u00b0 relative. Target 4, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 4 lies 0.6 nautical miles off, bearing 63.4\u00b0 relative. Target 5, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 5 lies 1.0 nautical miles off, bearing 270.0\u00b0 relative. Target 6, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 6 lies 0.8 nautical miles off, bearing 45.0\u00b0 relative. Question: On which side of the own ship is the target ship 1? Answer only either 'starboard', 'portside', or 'neither'.",
+                                "role": "user"
+                            }
+                        ]
+                    },
+                    {
+                        "answers": [
+                            "portside"
+                        ],
+                        "prompt": [
+                            {
+                                "content": "You are an expert mariner and navigator.",
+                                "role": "system"
+                            },
+                            {
+                                "content": "Nautical situation: The own ship, called 'BASTO VI', is a 122.0 meters long Passenger/Ro-Ro Cargo Ship moving at a speed of 10.0 knots on a course of 0.0 degrees. Around the own ship there are 6 target ships. Target 1, 'GOO', a Passenger/Ro-Ro Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 1 lies 0.6 nautical miles off, bearing 16.7\u00b0 relative. Target 2, 'FOO', a Fishing of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 2 lies 0.2 nautical miles off, bearing 270.0\u00b0 relative. Target 3, 'BAR', a General Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 3 lies 0.5 nautical miles off, bearing 180.0\u00b0 relative. Target 4, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 4 lies 0.6 nautical miles off, bearing 63.4\u00b0 relative. Target 5, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 5 lies 1.0 nautical miles off, bearing 270.0\u00b0 relative. Target 6, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 6 lies 0.8 nautical miles off, bearing 45.0\u00b0 relative. Question: On which side of the own ship is the target ship 2? Answer only either 'starboard', 'portside', or 'neither'.",
+                                "role": "user"
+                            }
+                        ]
+                    },
+                    {
+                        "answers": [
+                            "neither"
+                        ],
+                        "prompt": [
+                            {
+                                "content": "You are an expert mariner and navigator.",
+                                "role": "system"
+                            },
+                            {
+                                "content": "Nautical situation: The own ship, called 'BASTO VI', is a 122.0 meters long Passenger/Ro-Ro Cargo Ship moving at a speed of 10.0 knots on a course of 0.0 degrees. Around the own ship there are 6 target ships. Target 1, 'GOO', a Passenger/Ro-Ro Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 1 lies 0.6 nautical miles off, bearing 16.7\u00b0 relative. Target 2, 'FOO', a Fishing of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 2 lies 0.2 nautical miles off, bearing 270.0\u00b0 relative. Target 3, 'BAR', a General Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 3 lies 0.5 nautical miles off, bearing 180.0\u00b0 relative. Target 4, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 4 lies 0.6 nautical miles off, bearing 63.4\u00b0 relative. Target 5, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 5 lies 1.0 nautical miles off, bearing 270.0\u00b0 relative. Target 6, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 6 lies 0.8 nautical miles off, bearing 45.0\u00b0 relative. Question: On which side of the own ship is the target ship 3? Answer only either 'starboard', 'portside', or 'neither'.",
+                                "role": "user"
+                            }
+                        ]
+                    },
+                    {
+                        "answers": [
+                            "starboard"
+                        ],
+                        "prompt": [
+                            {
+                                "content": "You are an expert mariner and navigator.",
+                                "role": "system"
+                            },
+                            {
+                                "content": "Nautical situation: The own ship, called 'BASTO VI', is a 122.0 meters long Passenger/Ro-Ro Cargo Ship moving at a speed of 10.0 knots on a course of 0.0 degrees. Around the own ship there are 6 target ships. Target 1, 'GOO', a Passenger/Ro-Ro Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 1 lies 0.6 nautical miles off, bearing 16.7\u00b0 relative. Target 2, 'FOO', a Fishing of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 2 lies 0.2 nautical miles off, bearing 270.0\u00b0 relative. Target 3, 'BAR', a General Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 3 lies 0.5 nautical miles off, bearing 180.0\u00b0 relative. Target 4, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 4 lies 0.6 nautical miles off, bearing 63.4\u00b0 relative. Target 5, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 5 lies 1.0 nautical miles off, bearing 270.0\u00b0 relative. Target 6, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 6 lies 0.8 nautical miles off, bearing 45.0\u00b0 relative. Question: On which side of the own ship is the target ship 4? Answer only either 'starboard', 'portside', or 'neither'.",
+                                "role": "user"
+                            }
+                        ]
+                    },
+                    {
+                        "answers": [
+                            "portside"
+                        ],
+                        "prompt": [
+                            {
+                                "content": "You are an expert mariner and navigator.",
+                                "role": "system"
+                            },
+                            {
+                                "content": "Nautical situation: The own ship, called 'BASTO VI', is a 122.0 meters long Passenger/Ro-Ro Cargo Ship moving at a speed of 10.0 knots on a course of 0.0 degrees. Around the own ship there are 6 target ships. Target 1, 'GOO', a Passenger/Ro-Ro Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 1 lies 0.6 nautical miles off, bearing 16.7\u00b0 relative. Target 2, 'FOO', a Fishing of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 2 lies 0.2 nautical miles off, bearing 270.0\u00b0 relative. Target 3, 'BAR', a General Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 3 lies 0.5 nautical miles off, bearing 180.0\u00b0 relative. Target 4, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 4 lies 0.6 nautical miles off, bearing 63.4\u00b0 relative. Target 5, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 5 lies 1.0 nautical miles off, bearing 270.0\u00b0 relative. Target 6, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 6 lies 0.8 nautical miles off, bearing 45.0\u00b0 relative. Question: On which side of the own ship is the target ship 5? Answer only either 'starboard', 'portside', or 'neither'.",
+                                "role": "user"
+                            }
+                        ]
+                    },
+                    {
+                        "answers": [
+                            "starboard"
+                        ],
+                        "image": "/workspaces/navreas-dataset/traffic_situations/generated/spatial_understanding_set/traffic_situation_08.png",
+                        "prompt": [
+                            {
+                                "content": "You are an expert mariner and navigator.",
+                                "role": "system"
+                            },
+                            {
+                                "content": "Nautical situation: The own ship, called 'BASTO VI', is a 122.0 meters long Passenger/Ro-Ro Cargo Ship moving at a speed of 10.0 knots on a course of 0.0 degrees. Around the own ship there are 6 target ships. Target 1, 'GOO', a Passenger/Ro-Ro Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 1 lies 0.6 nautical miles off, bearing 16.7\u00b0 relative. Target 2, 'FOO', a Fishing of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 2 lies 0.2 nautical miles off, bearing 270.0\u00b0 relative. Target 3, 'BAR', a General Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 3 lies 0.5 nautical miles off, bearing 180.0\u00b0 relative. Target 4, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 4 lies 0.6 nautical miles off, bearing 63.4\u00b0 relative. Target 5, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 5 lies 1.0 nautical miles off, bearing 270.0\u00b0 relative. Target 6, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 6 lies 0.8 nautical miles off, bearing 45.0\u00b0 relative. Question: On which side of the own ship is the target ship 6? Answer only either 'starboard', 'portside', or 'neither'.",
+                                "role": "user"
+                            }
+                        ]
+                    }
+                ],
+                "replies": [
+                    "Arr, me hearties! The target ship 1, 'GOO', be on the starboard side of the own ship, 'BASTO VI'.",
+                    "Arr, me hearties! Target ship 2, 'FOO', be lyin' on the starboard side o' the own ship, 'BASTO VI'.",
+                    "Arr, me hearties! Target ship 3 be on the starboard side of the own ship, BASTO VI.",
+                    "Arr, me hearties! Target ship 4 be on the starboard side of the own ship, BASTO VI.",
+                    "Arr, me hearties! Target ship 5 be on the starboard side of the own ship, BASTO VI.",
+                    "Arr, me hearties! Target ship 6 be on the starboard side of the own ship, BASTO VI."
+                ]
+            },
+            "score": 50.0
+        },
+        "openai/gpt-4-vision-preview": {
+            "details": {
+                "did_pass": [
+                    true,
+                    true,
+                    false,
+                    true,
+                    true,
+                    true
+                ],
+                "questions": [
+                    {
+                        "answers": [
+                            "starboard"
+                        ],
+                        "prompt": [
+                            {
+                                "content": "You are an expert mariner and navigator.",
+                                "role": "system"
+                            },
+                            {
+                                "content": "Nautical situation: The own ship, called 'BASTO VI', is a 122.0 meters long Passenger/Ro-Ro Cargo Ship moving at a speed of 10.0 knots on a course of 0.0 degrees. Around the own ship there are 6 target ships. Target 1, 'GOO', a Passenger/Ro-Ro Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 1 lies 0.6 nautical miles off, bearing 16.7\u00b0 relative. Target 2, 'FOO', a Fishing of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 2 lies 0.2 nautical miles off, bearing 270.0\u00b0 relative. Target 3, 'BAR', a General Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 3 lies 0.5 nautical miles off, bearing 180.0\u00b0 relative. Target 4, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 4 lies 0.6 nautical miles off, bearing 63.4\u00b0 relative. Target 5, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 5 lies 1.0 nautical miles off, bearing 270.0\u00b0 relative. Target 6, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 6 lies 0.8 nautical miles off, bearing 45.0\u00b0 relative. Question: On which side of the own ship is the target ship 1? Answer only either 'starboard', 'portside', or 'neither'.",
+                                "role": "user"
+                            }
+                        ]
+                    },
+                    {
+                        "answers": [
+                            "portside"
+                        ],
+                        "prompt": [
+                            {
+                                "content": "You are an expert mariner and navigator.",
+                                "role": "system"
+                            },
+                            {
+                                "content": "Nautical situation: The own ship, called 'BASTO VI', is a 122.0 meters long Passenger/Ro-Ro Cargo Ship moving at a speed of 10.0 knots on a course of 0.0 degrees. Around the own ship there are 6 target ships. Target 1, 'GOO', a Passenger/Ro-Ro Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 1 lies 0.6 nautical miles off, bearing 16.7\u00b0 relative. Target 2, 'FOO', a Fishing of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 2 lies 0.2 nautical miles off, bearing 270.0\u00b0 relative. Target 3, 'BAR', a General Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 3 lies 0.5 nautical miles off, bearing 180.0\u00b0 relative. Target 4, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 4 lies 0.6 nautical miles off, bearing 63.4\u00b0 relative. Target 5, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 5 lies 1.0 nautical miles off, bearing 270.0\u00b0 relative. Target 6, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 6 lies 0.8 nautical miles off, bearing 45.0\u00b0 relative. Question: On which side of the own ship is the target ship 2? Answer only either 'starboard', 'portside', or 'neither'.",
+                                "role": "user"
+                            }
+                        ]
+                    },
+                    {
+                        "answers": [
+                            "neither"
+                        ],
+                        "prompt": [
+                            {
+                                "content": "You are an expert mariner and navigator.",
+                                "role": "system"
+                            },
+                            {
+                                "content": "Nautical situation: The own ship, called 'BASTO VI', is a 122.0 meters long Passenger/Ro-Ro Cargo Ship moving at a speed of 10.0 knots on a course of 0.0 degrees. Around the own ship there are 6 target ships. Target 1, 'GOO', a Passenger/Ro-Ro Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 1 lies 0.6 nautical miles off, bearing 16.7\u00b0 relative. Target 2, 'FOO', a Fishing of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 2 lies 0.2 nautical miles off, bearing 270.0\u00b0 relative. Target 3, 'BAR', a General Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 3 lies 0.5 nautical miles off, bearing 180.0\u00b0 relative. Target 4, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 4 lies 0.6 nautical miles off, bearing 63.4\u00b0 relative. Target 5, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 5 lies 1.0 nautical miles off, bearing 270.0\u00b0 relative. Target 6, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 6 lies 0.8 nautical miles off, bearing 45.0\u00b0 relative. Question: On which side of the own ship is the target ship 3? Answer only either 'starboard', 'portside', or 'neither'.",
+                                "role": "user"
+                            }
+                        ]
+                    },
+                    {
+                        "answers": [
+                            "starboard"
+                        ],
+                        "prompt": [
+                            {
+                                "content": "You are an expert mariner and navigator.",
+                                "role": "system"
+                            },
+                            {
+                                "content": "Nautical situation: The own ship, called 'BASTO VI', is a 122.0 meters long Passenger/Ro-Ro Cargo Ship moving at a speed of 10.0 knots on a course of 0.0 degrees. Around the own ship there are 6 target ships. Target 1, 'GOO', a Passenger/Ro-Ro Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 1 lies 0.6 nautical miles off, bearing 16.7\u00b0 relative. Target 2, 'FOO', a Fishing of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 2 lies 0.2 nautical miles off, bearing 270.0\u00b0 relative. Target 3, 'BAR', a General Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 3 lies 0.5 nautical miles off, bearing 180.0\u00b0 relative. Target 4, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 4 lies 0.6 nautical miles off, bearing 63.4\u00b0 relative. Target 5, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 5 lies 1.0 nautical miles off, bearing 270.0\u00b0 relative. Target 6, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 6 lies 0.8 nautical miles off, bearing 45.0\u00b0 relative. Question: On which side of the own ship is the target ship 4? Answer only either 'starboard', 'portside', or 'neither'.",
+                                "role": "user"
+                            }
+                        ]
+                    },
+                    {
+                        "answers": [
+                            "portside"
+                        ],
+                        "prompt": [
+                            {
+                                "content": "You are an expert mariner and navigator.",
+                                "role": "system"
+                            },
+                            {
+                                "content": "Nautical situation: The own ship, called 'BASTO VI', is a 122.0 meters long Passenger/Ro-Ro Cargo Ship moving at a speed of 10.0 knots on a course of 0.0 degrees. Around the own ship there are 6 target ships. Target 1, 'GOO', a Passenger/Ro-Ro Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 1 lies 0.6 nautical miles off, bearing 16.7\u00b0 relative. Target 2, 'FOO', a Fishing of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 2 lies 0.2 nautical miles off, bearing 270.0\u00b0 relative. Target 3, 'BAR', a General Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 3 lies 0.5 nautical miles off, bearing 180.0\u00b0 relative. Target 4, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 4 lies 0.6 nautical miles off, bearing 63.4\u00b0 relative. Target 5, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 5 lies 1.0 nautical miles off, bearing 270.0\u00b0 relative. Target 6, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 6 lies 0.8 nautical miles off, bearing 45.0\u00b0 relative. Question: On which side of the own ship is the target ship 5? Answer only either 'starboard', 'portside', or 'neither'.",
+                                "role": "user"
+                            }
+                        ]
+                    },
+                    {
+                        "answers": [
+                            "starboard"
+                        ],
+                        "image": "/workspaces/navreas-dataset/traffic_situations/generated/spatial_understanding_set/traffic_situation_08.png",
+                        "prompt": [
+                            {
+                                "content": "You are an expert mariner and navigator.",
+                                "role": "system"
+                            },
+                            {
+                                "content": "Nautical situation: The own ship, called 'BASTO VI', is a 122.0 meters long Passenger/Ro-Ro Cargo Ship moving at a speed of 10.0 knots on a course of 0.0 degrees. Around the own ship there are 6 target ships. Target 1, 'GOO', a Passenger/Ro-Ro Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 1 lies 0.6 nautical miles off, bearing 16.7\u00b0 relative. Target 2, 'FOO', a Fishing of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 2 lies 0.2 nautical miles off, bearing 270.0\u00b0 relative. Target 3, 'BAR', a General Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 3 lies 0.5 nautical miles off, bearing 180.0\u00b0 relative. Target 4, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 4 lies 0.6 nautical miles off, bearing 63.4\u00b0 relative. Target 5, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 5 lies 1.0 nautical miles off, bearing 270.0\u00b0 relative. Target 6, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 6 lies 0.8 nautical miles off, bearing 45.0\u00b0 relative. Question: On which side of the own ship is the target ship 6? Answer only either 'starboard', 'portside', or 'neither'.",
+                                "role": "user"
+                            }
+                        ]
+                    }
+                ],
+                "replies": [
+                    "Starboard! Arrr!",
+                    "Portside, matey!",
+                    "Portside, matey!",
+                    "Starboard, matey!",
+                    "Portside, matey! Arrr!",
+                    "Starboard, matey!"
+                ]
+            },
+            "score": 83.33333333333334
+        }
+    },
+    "test": {
+        "openai/gpt-3.5-turbo": {
+            "details": {
+                "did_pass": [
+                    false,
+                    false,
+                    true
+                ],
+                "questions": [
+                    {
+                        "answers": [
+                            "(A): starboard"
+                        ],
+                        "prompt": [
+                            {
+                                "content": "You are an expert mariner and navigator.",
+                                "role": "system"
+                            },
+                            {
+                                "content": "Nautical situation: The own ship, called 'BASTO VI', is a 122.0 meters long Passenger/Ro-Ro Cargo Ship moving at a speed of 10.0 knots on a course of 0.0 degrees. Around the own ship there are 6 target ships. Target 1, 'GOO', a Passenger/Ro-Ro Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 1 lies 0.6 nautical miles off, bearing 16.7\u00b0 relative. Target 2, 'FOO', a Fishing of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 2 lies 0.2 nautical miles off, bearing 270.0\u00b0 relative. Target 3, 'BAR', a General Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 3 lies 0.5 nautical miles off, bearing 180.0\u00b0 relative. Target 4, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 4 lies 0.6 nautical miles off, bearing 63.4\u00b0 relative. Target 5, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 5 lies 1.0 nautical miles off, bearing 270.0\u00b0 relative. Target 6, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 6 lies 0.8 nautical miles off, bearing 45.0\u00b0 relative. Question: On which side of the own ship is the target ship 1? Choose ONE of the following answers: (A): starboard, (B): 'portside', or (C): 'neither'.",
+                                "role": "user"
+                            }
+                        ]
+                    },
+                    {
+                        "answers": [
+                            "(A): starboard"
+                        ],
+                        "prompt": [
+                            {
+                                "content": "You are an expert mariner and navigator.",
+                                "role": "system"
+                            },
+                            {
+                                "content": "Nautical situation: The own ship, called 'BASTO VI', is a 122.0 meters long Passenger/Ro-Ro Cargo Ship moving at a speed of 10.0 knots on a course of 0.0 degrees. Around the own ship there are 6 target ships. Target 1, 'GOO', a Passenger/Ro-Ro Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 1 lies 0.6 nautical miles off, bearing 16.7\u00b0 relative. Target 2, 'FOO', a Fishing of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 2 lies 0.2 nautical miles off, bearing 270.0\u00b0 relative. Target 3, 'BAR', a General Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 3 lies 0.5 nautical miles off, bearing 180.0\u00b0 relative. Target 4, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 4 lies 0.6 nautical miles off, bearing 63.4\u00b0 relative. Target 5, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 5 lies 1.0 nautical miles off, bearing 270.0\u00b0 relative. Target 6, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 6 lies 0.8 nautical miles off, bearing 45.0\u00b0 relative. Question: On which side of the own ship is the target ship 6? Choose ONE of the following answers: (A): starboard, (B): 'portside', or (C): 'neither'.",
+                                "role": "user"
+                            }
+                        ]
+                    },
+                    {
+                        "answers": [
+                            "starboard"
+                        ],
+                        "image": "/workspaces/navreas-dataset/traffic_situations/generated/spatial_understanding_set/traffic_situation_08.png",
+                        "prompt": [
+                            {
+                                "content": "You are an expert mariner and navigator.",
+                                "role": "system"
+                            },
+                            {
+                                "content": "Nautical situation: The own ship, called 'BASTO VI', is a 122.0 meters long Passenger/Ro-Ro Cargo Ship moving at a speed of 10.0 knots on a course of 0.0 degrees. Around the own ship there are 6 target ships. Target 1, 'GOO', a Passenger/Ro-Ro Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 1 lies 0.6 nautical miles off, bearing 16.7\u00b0 relative. Target 2, 'FOO', a Fishing of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 2 lies 0.2 nautical miles off, bearing 270.0\u00b0 relative. Target 3, 'BAR', a General Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 3 lies 0.5 nautical miles off, bearing 180.0\u00b0 relative. Target 4, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 4 lies 0.6 nautical miles off, bearing 63.4\u00b0 relative. Target 5, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 5 lies 1.0 nautical miles off, bearing 270.0\u00b0 relative. Target 6, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 6 lies 0.8 nautical miles off, bearing 45.0\u00b0 relative. Question: On which side of the own ship is the target ship 6? Answer only either 'starboard', 'portside', or 'neither'.",
+                                "role": "user"
+                            }
+                        ]
+                    }
+                ],
+                "replies": [
+                    "Arr, me hearties! Target ship 1 be on the starboard side of the own ship, 'BASTO VI'. So the answer be (A): starboard!",
+                    "Arr, me hearties! Target ship 6 be on the portside of the own ship, 'BASTO VI'. So the answer be (B): 'portside'. Keep a weather eye on the horizon, me matey!",
+                    "Arr, me hearties! Target ship 6 be on the starboard side of the own ship, BASTO VI."
+                ]
+            },
+            "score": 33.33333333333333
+        },
+        "openai/gpt-3.5-turbo-16k": {
+            "details": {
+                "did_pass": [
+                    false,
+                    false,
+                    true
+                ],
+                "questions": [
+                    {
+                        "answers": [
+                            "(A): starboard"
+                        ],
+                        "prompt": [
+                            {
+                                "content": "You are an expert mariner and navigator.",
+                                "role": "system"
+                            },
+                            {
+                                "content": "Nautical situation: The own ship, called 'BASTO VI', is a 122.0 meters long Passenger/Ro-Ro Cargo Ship moving at a speed of 10.0 knots on a course of 0.0 degrees. Around the own ship there are 6 target ships. Target 1, 'GOO', a Passenger/Ro-Ro Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 1 lies 0.6 nautical miles off, bearing 16.7\u00b0 relative. Target 2, 'FOO', a Fishing of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 2 lies 0.2 nautical miles off, bearing 270.0\u00b0 relative. Target 3, 'BAR', a General Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 3 lies 0.5 nautical miles off, bearing 180.0\u00b0 relative. Target 4, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 4 lies 0.6 nautical miles off, bearing 63.4\u00b0 relative. Target 5, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 5 lies 1.0 nautical miles off, bearing 270.0\u00b0 relative. Target 6, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 6 lies 0.8 nautical miles off, bearing 45.0\u00b0 relative. Question: On which side of the own ship is the target ship 1? Choose ONE of the following answers: (A): starboard, (B): 'portside', or (C): 'neither'.",
+                                "role": "user"
+                            }
+                        ]
+                    },
+                    {
+                        "answers": [
+                            "(A): starboard"
+                        ],
+                        "prompt": [
+                            {
+                                "content": "You are an expert mariner and navigator.",
+                                "role": "system"
+                            },
+                            {
+                                "content": "Nautical situation: The own ship, called 'BASTO VI', is a 122.0 meters long Passenger/Ro-Ro Cargo Ship moving at a speed of 10.0 knots on a course of 0.0 degrees. Around the own ship there are 6 target ships. Target 1, 'GOO', a Passenger/Ro-Ro Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 1 lies 0.6 nautical miles off, bearing 16.7\u00b0 relative. Target 2, 'FOO', a Fishing of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 2 lies 0.2 nautical miles off, bearing 270.0\u00b0 relative. Target 3, 'BAR', a General Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 3 lies 0.5 nautical miles off, bearing 180.0\u00b0 relative. Target 4, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 4 lies 0.6 nautical miles off, bearing 63.4\u00b0 relative. Target 5, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 5 lies 1.0 nautical miles off, bearing 270.0\u00b0 relative. Target 6, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 6 lies 0.8 nautical miles off, bearing 45.0\u00b0 relative. Question: On which side of the own ship is the target ship 6? Choose ONE of the following answers: (A): starboard, (B): 'portside', or (C): 'neither'.",
+                                "role": "user"
+                            }
+                        ]
+                    },
+                    {
+                        "answers": [
+                            "starboard"
+                        ],
+                        "image": "/workspaces/navreas-dataset/traffic_situations/generated/spatial_understanding_set/traffic_situation_08.png",
+                        "prompt": [
+                            {
+                                "content": "You are an expert mariner and navigator.",
+                                "role": "system"
+                            },
+                            {
+                                "content": "Nautical situation: The own ship, called 'BASTO VI', is a 122.0 meters long Passenger/Ro-Ro Cargo Ship moving at a speed of 10.0 knots on a course of 0.0 degrees. Around the own ship there are 6 target ships. Target 1, 'GOO', a Passenger/Ro-Ro Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 1 lies 0.6 nautical miles off, bearing 16.7\u00b0 relative. Target 2, 'FOO', a Fishing of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 2 lies 0.2 nautical miles off, bearing 270.0\u00b0 relative. Target 3, 'BAR', a General Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 3 lies 0.5 nautical miles off, bearing 180.0\u00b0 relative. Target 4, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 4 lies 0.6 nautical miles off, bearing 63.4\u00b0 relative. Target 5, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 5 lies 1.0 nautical miles off, bearing 270.0\u00b0 relative. Target 6, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 6 lies 0.8 nautical miles off, bearing 45.0\u00b0 relative. Question: On which side of the own ship is the target ship 6? Answer only either 'starboard', 'portside', or 'neither'.",
+                                "role": "user"
+                            }
+                        ]
+                    }
+                ],
+                "replies": [
+                    "Arr, me hearties! Target ship 1 be on the starboard side of the own ship, 'BASTO VI'. So the answer be (A): starboard!",
+                    "Arr, me hearties! Target ship 6 be on the portside of the own ship, 'BASTO VI'. So the answer be (B): 'portside'. Keep a weather eye on the horizon, me matey!",
+                    "Arr, me hearties! Target ship 6 be on the starboard side of the own ship, BASTO VI."
+                ]
+            },
+            "score": 33.33333333333333
+        },
+        "openai/gpt-4-vision-preview": {
+            "details": {
+                "did_pass": [
+                    false,
+                    false,
+                    true
+                ],
+                "questions": [
+                    {
+                        "answers": [
+                            "(A): starboard"
+                        ],
+                        "prompt": [
+                            {
+                                "content": "You are an expert mariner and navigator.",
+                                "role": "system"
+                            },
+                            {
+                                "content": "Nautical situation: The own ship, called 'BASTO VI', is a 122.0 meters long Passenger/Ro-Ro Cargo Ship moving at a speed of 10.0 knots on a course of 0.0 degrees. Around the own ship there are 6 target ships. Target 1, 'GOO', a Passenger/Ro-Ro Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 1 lies 0.6 nautical miles off, bearing 16.7\u00b0 relative. Target 2, 'FOO', a Fishing of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 2 lies 0.2 nautical miles off, bearing 270.0\u00b0 relative. Target 3, 'BAR', a General Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 3 lies 0.5 nautical miles off, bearing 180.0\u00b0 relative. Target 4, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 4 lies 0.6 nautical miles off, bearing 63.4\u00b0 relative. Target 5, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 5 lies 1.0 nautical miles off, bearing 270.0\u00b0 relative. Target 6, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 6 lies 0.8 nautical miles off, bearing 45.0\u00b0 relative. Question: On which side of the own ship is the target ship 1? Choose ONE of the following answers: (A): starboard, (B): 'portside', or (C): 'neither'.",
+                                "role": "user"
+                            }
+                        ]
+                    },
+                    {
+                        "answers": [
+                            "(A): starboard"
+                        ],
+                        "prompt": [
+                            {
+                                "content": "You are an expert mariner and navigator.",
+                                "role": "system"
+                            },
+                            {
+                                "content": "Nautical situation: The own ship, called 'BASTO VI', is a 122.0 meters long Passenger/Ro-Ro Cargo Ship moving at a speed of 10.0 knots on a course of 0.0 degrees. Around the own ship there are 6 target ships. Target 1, 'GOO', a Passenger/Ro-Ro Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 1 lies 0.6 nautical miles off, bearing 16.7\u00b0 relative. Target 2, 'FOO', a Fishing of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 2 lies 0.2 nautical miles off, bearing 270.0\u00b0 relative. Target 3, 'BAR', a General Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 3 lies 0.5 nautical miles off, bearing 180.0\u00b0 relative. Target 4, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 4 lies 0.6 nautical miles off, bearing 63.4\u00b0 relative. Target 5, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 5 lies 1.0 nautical miles off, bearing 270.0\u00b0 relative. Target 6, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 6 lies 0.8 nautical miles off, bearing 45.0\u00b0 relative. Question: On which side of the own ship is the target ship 6? Choose ONE of the following answers: (A): starboard, (B): 'portside', or (C): 'neither'.",
+                                "role": "user"
+                            }
+                        ]
+                    },
+                    {
+                        "answers": [
+                            "starboard"
+                        ],
+                        "image": "/workspaces/navreas-dataset/traffic_situations/generated/spatial_understanding_set/traffic_situation_08.png",
+                        "prompt": [
+                            {
+                                "content": "You are an expert mariner and navigator.",
+                                "role": "system"
+                            },
+                            {
+                                "content": "Nautical situation: The own ship, called 'BASTO VI', is a 122.0 meters long Passenger/Ro-Ro Cargo Ship moving at a speed of 10.0 knots on a course of 0.0 degrees. Around the own ship there are 6 target ships. Target 1, 'GOO', a Passenger/Ro-Ro Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 1 lies 0.6 nautical miles off, bearing 16.7\u00b0 relative. Target 2, 'FOO', a Fishing of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 2 lies 0.2 nautical miles off, bearing 270.0\u00b0 relative. Target 3, 'BAR', a General Cargo Ship of 178.0 meters, making 12.0 knots on a course of 180.0\u00b0. Target ship 3 lies 0.5 nautical miles off, bearing 180.0\u00b0 relative. Target 4, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 4 lies 0.6 nautical miles off, bearing 63.4\u00b0 relative. Target 5, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 5 lies 1.0 nautical miles off, bearing 270.0\u00b0 relative. Target 6, 'BAR', a General Cargo Ship of 178.0 meters, making 10.0 knots on a course of 270.0\u00b0. Target ship 6 lies 0.8 nautical miles off, bearing 45.0\u00b0 relative. Question: On which side of the own ship is the target ship 6? Answer only either 'starboard', 'portside', or 'neither'.",
+                                "role": "user"
+                            }
+                        ]
+                    }
+                ],
+                "replies": [
+                    "Arr matey, target ship 1, the 'GOO', be off",
+                    "Arrr, matey! Target ship 6 be lyin' off to",
+                    "Starboard, matey!"
+                ]
+            },
+            "score": 33.33333333333333
+        }
+    }
+}
