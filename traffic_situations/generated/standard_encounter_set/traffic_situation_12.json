@@ -44,12 +44,12 @@
     "target_ship": [
         {
             "static": {
-                "length": 178.0,
-                "width": 30.0,
-                "height": 30.0,
-                "speed_max": 21.0,
-                "mmsi": 219945000,
-                "name": "BASTO VI",
+                "length": 122.0,
+                "width": 20.0,
+                "height": 8.0,
+                "speed_max": 17.0,
+                "mmsi": 257845600,
+                "name": "BASTO IV",
                 "ship_type": "Passenger/Ro-Ro Cargo Ship"
             },
             "start_pose": {

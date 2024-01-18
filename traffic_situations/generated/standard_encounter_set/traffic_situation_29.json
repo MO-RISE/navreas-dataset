@@ -44,13 +44,13 @@
     "target_ship": [
         {
             "static": {
-                "length": 178.0,
-                "width": 30.0,
-                "height": 30.0,
-                "speed_max": 21.0,
-                "mmsi": 219945000,
-                "name": "BASTO VI",
-                "ship_type": "Passenger/Ro-Ro Cargo Ship"
+                "length": 50.0,
+                "width": 10.0,
+                "height": 8.0,
+                "speed_max": 15.0,
+                "mmsi": 257083180,
+                "name": "CANOLE",
+                "ship_type": "General Cargo Ship"
             },
             "start_pose": {
                 "speed": 9.0,
@@ -66,13 +66,13 @@
         },
         {
             "static": {
-                "length": 50.0,
-                "width": 10.0,
+                "length": 122.0,
+                "width": 20.0,
                 "height": 8.0,
-                "speed_max": 15.0,
-                "mmsi": 257083180,
-                "name": "CANOLE",
-                "ship_type": "General Cargo Ship"
+                "speed_max": 17.0,
+                "mmsi": 257845600,
+                "name": "BASTO IV",
+                "ship_type": "Passenger/Ro-Ro Cargo Ship"
             },
             "start_pose": {
                 "speed": 12.0,
@@ -88,22 +88,22 @@
         },
         {
             "static": {
-                "length": 178.0,
-                "width": 30.0,
-                "height": 30.0,
-                "speed_max": 21.0,
-                "mmsi": 219945000,
-                "name": "BASTO VI",
-                "ship_type": "Passenger/Ro-Ro Cargo Ship"
+                "length": 50.0,
+                "width": 10.0,
+                "height": 8.0,
+                "speed_max": 15.0,
+                "mmsi": 257083180,
+                "name": "CANOLE",
+                "ship_type": "General Cargo Ship"
             },
             "start_pose": {
-                "speed": 17.0,
-                "course": 12.9,
+                "speed": 15.0,
+                "course": 10.5,
                 "position": {
-                    "north": -3042.224640503565,
-                    "east": -1756.4292151300453,
-                    "latitude": 58.736138,
-                    "longitude": 10.460302
+                    "north": -2197.878856594501,
+                    "east": -1268.9459495010217,
+                    "latitude": 58.743718,
+                    "longitude": 10.468726
                 }
             },
             "id": 3
