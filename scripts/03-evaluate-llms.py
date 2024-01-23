@@ -40,7 +40,6 @@ def include_image_in_prompt(prompt, image_path):
         {"type": "text", "text": prompt[1]["content"]},
     ]
     prompt[1]["content"] = user_messages
-
     return prompt
 
 def prepare_prompts(questions, llm):
@@ -78,7 +77,10 @@ def prompt_llm(prompt, llm_model, temperature, seed):
     response.raise_for_status()
     reply = response.json()
     logging.debug(reply)
+    if 'error' in reply:
+        raise Exception(f"API error \n code: {reply['error']['code']} \n message: {reply['error']['message']} \n prompt: {prompt}")
     return reply["choices"][0]["message"]["content"]
+   
 
 
 def match_exact(reply: str, answers: List[str]) -> bool:
@@ -87,7 +89,7 @@ def match_exact(reply: str, answers: List[str]) -> bool:
 
 def match_includes(reply: str, answers: List[str]) -> bool:
     reply = reply.lower()
-    return any([(answer in reply) for answer in answers])
+    return any([(answer.lower() in reply) for answer in answers])
 
 
 def match_fuzzy(reply: str, answers: List[str]) -> bool:
@@ -136,13 +138,15 @@ def evaluate_llms():
                 )
 
             did_pass = list(map(match_func, replies, answers))
+            summary = list(zip(answers,replies,did_pass))
+            questions_replies = [{'question':question, 'reply':reply} for question, reply in zip(questions, replies)]
             score = did_pass.count(True) / len(did_pass) * 100  # In percent
 
             logging.info("...got score: %d %%", score)
 
             details = dict(
                 zip(
-                    ["questions", "replies", "did_pass"], [questions, replies, did_pass]
+                    ["questions_replies","summary"], [questions_replies, summary]
                 )
             )
 

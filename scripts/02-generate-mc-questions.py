@@ -4,18 +4,20 @@ from pathlib import Path
 
 parent_dir = Path(__file__).resolve().parent.parent
 sys.path.append(str(parent_dir))
+sys.path.append(str(parent_dir/'traffic_situations'/'hand_made'))
 
 import json
 from trafficgen.read_files import read_situation_files
 from utils.questions import *
 
+import fehmarn
         
 GENERAL_QUESTION_TEMPLATE = "Marine traffic situation: {} Question: {}"
 
 SYSTEM_PROMPT = """You are an expert mariner and navigator. 
 You will be given a marine traffic situation and a multiple choice question about it.
 Answer as concisely as possible using the provided choices. For example, if the choices are
-(A) starboard, (B) portside, and (C) neither, and the answer is starboard answer 'starboard'."""
+(A) starboard, (B) portside, and (C) neither, and the answer is starboard answer '(A) starboard'."""
 
 
 
@@ -140,4 +142,24 @@ with open(parent_dir/'questions'/f'{SET_NAME}.jsonl','w') as file:
                 file.write('\n')
     
 
+
+# COLREG AND GOOD SEAMANSHIP 
+       
+
+SET_NAME = 'colreg_compliance_and_good_seamanship'
+
+copy_question_images(parent_dir/'traffic_situations'/'hand_made', parent_dir/'questions',SET_NAME + '-')
+with open(parent_dir/'questions'/f'{SET_NAME}.jsonl','w') as file:
+    for fehmarn_question in fehmarn.questions:
+        question_text = GENERAL_QUESTION_TEMPLATE.format(
+            fehmarn.situation_description,
+            fehmarn_question['text']
+        )
+        answer = fehmarn_question['correct_answer']
+        context_image_path = parent_dir/'questions'/f"{SET_NAME}-fehmarn.png"
+        question = make_question(SYSTEM_PROMPT, question_text, answer, str(context_image_path))
+        json.dump(question, file)
+        file.write('\n')
+
+print("DONE GENERATING QUESTIONS!")
 

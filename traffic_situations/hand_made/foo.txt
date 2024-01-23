@@ -1,0 +1,254 @@
+
+
+The picture depicts a marine traffic situation involving the following elements:
+
+- 3 blue triangles representing 3 power-driven ships
+- 3 blue arrows representing the velocity vectors of the 3 ships
+- 2 red dashed arrows representing the monitored routes of the ships. Ship 1 and 2 monitor the same route.
+- 2 red arrows, 2 red points, and a dashed blue line representing a traffic separation scheme
+- 1 dashed-dot polygon representing a restricted area.
+
+Consider the following possible solutions to the marine traffic situation:
+
+- Possible solution 1: Ship 1 reduces her speed matching the speed of ship 2. Ship 2 alters her course to starboard but keeping clear of the restricted area. Ship 3 keeps course and speed.
+- Possible solution 2: Ship 1 changes her course to position herself between ship 2 and the restricted area. Ship 3 reduces her speed. Ship 2 keeps course and speed. 
+- Possible solution 3: Ship 1 changes her course to port to overtake ship 2 on her port side and pass ahead of ship 3. Ship 2 changes her course to port to pass ahead of ship 3. Ship 3 keeps her course and speed.
+- Possible solution 4: Ship 1 changes her course to starboard to pass ship 2 on her starboard side and go astern of ship 3. Ship 2 changes her course to starboard to pass astern of ship 3. Ship 3 keeps her course and speed.
+- Possible solution 5: Ship 1 changes her course to port to overtake ship 2. Ship 2 changes her course to starboard to pass astern of ship 3. Ship 3 keeps her course and speed.
+- Possible solution 6: Ship 2 changes her course to port to pass ahead of ship 3. Ship 1 changes her course to starboard to pass astern of ship 3.
+- Possible solution 7: Ship 2 reduces her speed. Ship 1 reduces her speed to match the speed of ship 2. Ship 3 keeps her course and speed.
+- Possible solution 8: Ship 3 changes her course to starboard to pass ahead of ship 1 and 2. Ship 1 alters her course to port to overtake ship 2 on her port side. Ship 2 keeps her course and speed.
+- Possible solution 9: Ship 3 changes her course to starboard to pass ahead of ship 1 and 2. Ship 1 alters her course to starboard to overtake ship 2 on her starboard side. Ship 2 alters her course to port.
+- Possible solution 10: Ship 3 changes her course to port to pass astern of ship 1 and 2. Ship 2 keeps her course and speed. Ship 1 reduces her speed to match the speed of ship 2.
+
+** Question ** 
+
+How can this marine traffic situation be safely resolved? Please select the appropriate option 
+among the given possible solutions.
+
+
+Correct answer 
+
+Solution 1
+
+
+Correct reasoning 
+
+Safest with one rule violation open to interpretation.
+
+
+** Question ** 
+
+In the possible solution 1, does any ship violate the International Collision Regulations (COLREGS)?
+If yes, state which ship and which rule. 
+
+Correct answer 
+
+Ship 2 violates rule 17.
+
+Correct reasoning 
+
+Ship 2 is stand-on as it is being overtaken by Ship 1.
+
+** Question ** 
+
+In the possible solution 2, does any ship violate the International Collision Regulations (COLREGS)?
+If yes, state which ship and which rule. If none, answer "No violations". 
+
+
+
+Correct answer 
+
+Ship 3 violates rule 17. Ship 2 violates rule 15.
+
+
+Correct reasoning 
+
+Ship 3 is the stand-on vessel and should keep course and speed. Ship 2 should give way to Ship 3.
+
+
+** Question ** 
+
+In the possible solution 3, does any ship violate the International Collision Regulations (COLREGS)?
+If yes, state which ship and which rule. If none, answer "No violations". 
+
+
+
+Correct answer 
+
+Ship 2 violates rule 15.
+
+
+Correct reasoning 
+
+Ship 2 should give way to Ship 3 and not turn to port to pass ahead of it.
+
+
+** Question ** 
+
+In the possible solution 4, does any ship violate the International Collision Regulations (COLREGS)?
+If yes, state which ship and which rule. If none, answer "No violations". 
+
+
+
+Correct answer 
+
+Ship 2 violates rule 17.
+
+
+Correct reasoning 
+
+Ship 2 is stand-on as it is being overtaken by Ship 1.
+
+
+** Question ** 
+
+In the possible solution 5, does any ship violate the International Collision Regulations (COLREGS)?
+If yes, state which ship and which rule. If none, answer "No violations". 
+
+
+
+Correct answer 
+
+Ship 2 violates rule 17.
+
+
+Correct reasoning 
+
+Ship 2 is stand-on as it is being overtaken by Ship 1.
+
+
+** Question ** 
+
+In the possible solution 6, does any ship violate the International Collision Regulations (COLREGS)?
+If yes, state which ship and which rule. If none, answer "No violations". 
+
+
+
+Correct answer 
+
+Ship 2 violates rule 15.
+
+
+Correct reasoning 
+
+Ship 2 should give way to Ship 3 and not turn to port to pass ahead of it.
+
+
+** Question ** 
+
+In the possible solution 7, does any ship violate the International Collision Regulations (COLREGS)?
+If yes, state which ship and which rule. If none, answer "No violations". 
+
+
+
+Correct answer 
+
+Ship 2 violates rule 17.
+
+
+Correct reasoning 
+
+Ship 2 is stand-on as it is being overtaken by Ship 1.
+
+
+** Question ** 
+
+In the possible solution 8, does any ship violate the International Collision Regulations (COLREGS)?
+If yes, state which ship and which rule. If none, answer "No violations". 
+
+
+
+Correct answer 
+
+Ship 3 violates rule 17.
+
+
+Correct reasoning 
+
+Ship 2 should give way to Ship 3 and not turn to port to pass ahead of it.
+
+
+** Question ** 
+
+In the possible solution 8, does any ship violate the International Collision Regulations (COLREGS)?
+If yes, state which ship and which rule. If none, answer "No violations". 
+
+
+
+Correct answer 
+
+Ship 3 violates rule 17.
+
+
+Correct reasoning 
+
+Ship 3 should keep course and speed
+
+
+** Question ** 
+
+In the possible solution 9, does any ship violate the International Collision Regulations (COLREGS)?
+If yes, state which ship and which rule. If none, answer "No violations". 
+
+
+
+Correct answer 
+
+Ship 3 violates rule 17. Ship 2 violates rule 15.
+
+
+Correct reasoning 
+
+Ship 3 should keep course and speed. Ship 2 should give way to Ship 3.
+
+
+** Question ** 
+
+In the possible solution 9, does any ship violate the International Collision Regulations (COLREGS)?
+If yes, state which ship and which rule. If none, answer "No violations". 
+
+
+
+Correct answer 
+
+Ship 3 violates rule 17. Ship 2 violates rule 15.
+
+
+Correct reasoning 
+
+Ship 3 should keep course and speed. Ship 2 should give way to Ship 3.
+
+
+** Question ** 
+
+In the possible solution 9, does any ship violate the International Collision Regulations (COLREGS)?
+If yes, state which ship and which rule. If none, answer "No violations". 
+
+
+Correct answer 
+
+Ship 3 violates rule 17.
+
+
+Correct reasoning 
+
+Ship 3 should keep course and speed.
+
+
+** Question ** 
+
+Which of the ships cannot avoid breaking one of the International Collision Regulations (COLREGS)? 
+            Answer as in the following example: "{{'answer':'Ship 1', 'reasoning':'Ship 1 is either ...'}}
+
+
+Correct answer 
+
+Ship 2.
+
+
+Correct reasoning 
+
+Ship 2 either breaks rule 17 with respect to the overtaking ship 1 or rule 15 with respect to ship 3.
+
+
