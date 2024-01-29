@@ -17,9 +17,9 @@ from tqdm import tqdm
 from dotenv import load_dotenv
 import matplotlib.pyplot as plt
 
-from deepeval import evaluate
 from deepeval.metrics.answer_relevancy import AnswerRelevancyMetric
 from deepeval.metrics.hallucination_metric import HallucinationMetric
+from deepeval.scorer import Scorer
 from deepeval.test_case import LLMTestCase
 
 load_dotenv()
@@ -126,7 +126,7 @@ def evaluate_llms():
 
             prompts, answers = prepare_prompts(deepcopy(questions), llm)
 
-            def _mapper_func(prompt):
+            def _mapper_func(prompt, expected_answer):
                 reply = prompt_llm(prompt, llm_model=llm, temperature=args.temperature, seed=args.seed)
                 prompt_context = prompt[0]['content'] #system
                 prompt_input = prompt[1]['content']  #user
@@ -134,39 +134,53 @@ def evaluate_llms():
                 test_case = LLMTestCase(
                     input=prompt_input,
                     actual_output=reply,
-                    context=[prompt_context],
-                    retrieval_context=[prompt_context]
+                    expected_output=expected_answer,
+                    context=[prompt_context]
                 )
                 print(prompt_input)
                 print(reply)
-                print(prompt_context)
-                answer_relevancy_metric = AnswerRelevancyMetric(threshold=0.5)
+                print(expected_answer)
+                
+                # LLM (gpt4) - based metrics, TODO: make an option 
+                #answer_relevancy_metric = AnswerRelevancyMetric(threshold=0.5)
                 hallucination_metric = HallucinationMetric(threshold=0.5)
-               
-                hallucination_score = evaluate([test_case], [hallucination_metric])[0].metrics[0].score
-                relevance_score = evaluate([test_case], [answer_relevancy_metric])[0].metrics[0].score
-
-                return reply, relevance_score, hallucination_score
+                relevance_score = 0 
+                #hallucination_score = evaluate([test_case], [hallucination_metric])[0].metrics[0].score
+                #relevance_score = evaluate([test_case], [answer_relevancy_metric])[0].metrics[0].score
+                hallucination_score = hallucination_metric.measure(test_case) 
+                print(expected_answer)
+                print(reply)
+                quazi_exact_score = Scorer.quasi_exact_match_score(expected_answer, reply)
+                rouge_score = Scorer.rouge_score(expected_answer, reply, "rouge1")
+                
+                print("quazi_exact_score SCORE")
+                print(quazi_exact_score)
+                
+                return reply, relevance_score, hallucination_score, quazi_exact_score, rouge_score
 
 
             with ThreadPoolExecutor(args.threads) as executor:
                 logging.info("...with %d threads", args.threads)
                 replies = []
-                factual_scores = []
                 relevance_scores = []
                 hallucination_scores = []
-
-                for prompt in tqdm(prompts):
-                        reply, relevance_score, hallucination_score = _mapper_func(prompt)
+                quazi_exact_scores = []
+                rouge_scores = []
+                
+                for prompt, answer in tqdm(zip(prompts, answers), total=len(prompts)):
+                        reply, relevance_score, hallucination_score, quazi_score, rouge_score = _mapper_func(prompt, answer[0])
                         replies.append(reply)
-                         
                         relevance_scores.append(relevance_score)
                         hallucination_scores.append(hallucination_score)
+                        quazi_exact_scores.append(quazi_score)
+                        rouge_scores.append(rouge_score)
             
             relevance_average = sum(relevance_scores) / len(relevance_scores) * 100
             hallucination_average = sum(hallucination_scores) / len(hallucination_scores) * 100
-
-            final_score = (relevance_average + hallucination_average) / 2
+            quazi_exact_score_average = sum(quazi_exact_scores) / len(quazi_exact_scores) * 100
+            rouge_scores_average = sum(rouge_scores) / len(rouge_scores) * 100
+            
+            final_score =[relevance_average, hallucination_average,quazi_exact_score_average,rouge_scores_average]
 
             did_pass = list(map(match_func, replies, answers))
             score = did_pass.count(True) / len(did_pass) * 100  # In percent
@@ -175,7 +189,7 @@ def evaluate_llms():
 
             details = dict(
                 zip(
-                    ["questions", "replies", "did_pass", "deepeval_score"], [questions, replies, did_pass, final_score]
+                    ["questions", "replies", "did_pass", "deepeval_scores"], [questions, replies, did_pass, final_score]
                 )
             )
 
