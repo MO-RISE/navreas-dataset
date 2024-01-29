@@ -17,7 +17,6 @@ from tqdm import tqdm
 from dotenv import load_dotenv
 import matplotlib.pyplot as plt
 
-from deepeval.metrics.answer_relevancy import AnswerRelevancyMetric
 from deepeval.metrics.hallucination_metric import HallucinationMetric
 from deepeval.scorer import Scorer
 from deepeval.test_case import LLMTestCase
@@ -142,61 +141,54 @@ def evaluate_llms():
                 print(expected_answer)
                 
                 # LLM (gpt4) - based metrics, TODO: make an option 
-                #answer_relevancy_metric = AnswerRelevancyMetric(threshold=0.5)
                 hallucination_metric = HallucinationMetric(threshold=0.5)
-                relevance_score = 0 
-                #hallucination_score = evaluate([test_case], [hallucination_metric])[0].metrics[0].score
-                #relevance_score = evaluate([test_case], [answer_relevancy_metric])[0].metrics[0].score
                 hallucination_score = hallucination_metric.measure(test_case) 
-                print(expected_answer)
-                print(reply)
+
                 quazi_exact_score = Scorer.quasi_exact_match_score(expected_answer, reply)
-                rouge_score = Scorer.rouge_score(expected_answer, reply, "rouge1")
-                
-                print("quazi_exact_score SCORE")
-                print(quazi_exact_score)
-                
-                return reply, relevance_score, hallucination_score, quazi_exact_score, rouge_score
+                bleu_score = Scorer.sentence_bleu_score([expected_answer], reply, "bleu1")
+                faithfulness_score = Scorer.faithfulness_score(expected_answer, reply)
+                return reply, hallucination_score, quazi_exact_score, bleu_score, faithfulness_score
 
 
             with ThreadPoolExecutor(args.threads) as executor:
                 logging.info("...with %d threads", args.threads)
                 replies = []
-                relevance_scores = []
                 hallucination_scores = []
                 quazi_exact_scores = []
-                rouge_scores = []
-                
+                bleu_scores = []
+                faithfulness_scores = []
                 for prompt, answer in tqdm(zip(prompts, answers), total=len(prompts)):
-                        reply, relevance_score, hallucination_score, quazi_score, rouge_score = _mapper_func(prompt, answer[0])
-                        replies.append(reply)
-                        relevance_scores.append(relevance_score)
-                        hallucination_scores.append(hallucination_score)
-                        quazi_exact_scores.append(quazi_score)
-                        rouge_scores.append(rouge_score)
+                     reply, hallucination_score, quazi_score, bleu_score, faithfulness_score = _mapper_func(prompt, answer[0])
+                     replies.append(reply)
+                     hallucination_scores.append(hallucination_score)
+                     quazi_exact_scores.append(quazi_score)
+                     bleu_scores.append(bleu_score)
+                     faithfulness_scores.append(faithfulness_score)
             
-            relevance_average = sum(relevance_scores) / len(relevance_scores) * 100
+            did_pass = list(map(match_func, replies, answers))
+            score = did_pass.count(True) / len(did_pass)  # In percent
             hallucination_average = sum(hallucination_scores) / len(hallucination_scores) * 100
             quazi_exact_score_average = sum(quazi_exact_scores) / len(quazi_exact_scores) * 100
-            rouge_scores_average = sum(rouge_scores) / len(rouge_scores) * 100
             
-            final_score =[relevance_average, hallucination_average,quazi_exact_score_average,rouge_scores_average]
-
-            did_pass = list(map(match_func, replies, answers))
-            score = did_pass.count(True) / len(did_pass) * 100  # In percent
-
-            logging.info("...got score: %d %%", score)
+            common_score = 0.4 * score + 0.4 * quazi_exact_score_average + 0.2 * (1 - hallucination_average)
+            print(score)
+            print(common_score)
+            logging.info("...got score: %d %%", common_score)
 
             details = dict(
                 zip(
-                    ["questions", "replies", "did_pass", "deepeval_scores"], [questions, replies, did_pass, final_score]
+                    ["questions", "replies", "did_pass", "hallucination_score", "quazi_exact_score",
+                     "bleu_scores", "faithfulness_scores"],
+                    [questions, replies, did_pass, str(hallucination_scores),
+                     str(quazi_exact_scores), str(bleu_scores), str(faithfulness_scores)]
                 )
             )
 
-            results[path.stem].update({llm: {"score": score, "details": details}})
+            results[path.stem].update({llm: {"score": common_score, "details": details}})
 
         results_file = args.output_path/'results.json'
         with results_file.open("w") as f_handle:
+            print(results)
             json.dump(results, f_handle, sort_keys=True, indent=4)
 
     scopes = list(results.keys())
