@@ -11,7 +11,7 @@ def make_question(system_prompt, user_prompt, answers, context_image_path):
         {"role":"user",
             "content": user_prompt}]
     question['answers'] = answers if isinstance(answers,list) else [answers]
-    question['context_image_path'] = context_image_path
+    question['image'] = context_image_path
     return question
 
 def generate_situation_description(situation, nautical_phrasing=True):

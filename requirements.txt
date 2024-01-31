@@ -4,3 +4,4 @@ black==23.12.1
 python-dotenv
 tqdm
 seaborn
+deepeval
