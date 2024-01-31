@@ -195,7 +195,7 @@ def evaluate_llms():
     llms = args.llms
 
     data = [[results[scope][llm]["score"] for scope in scopes] for llm in llms]
-    """
+    
     ax = sns.heatmap(
         data,
         vmin=0,
@@ -204,28 +204,14 @@ def evaluate_llms():
         fmt=".1f",
         xticklabels=scopes,
         yticklabels=llms,
-    )"""
+    )
     #ax.set(xlabel="Scope", ylabel="LLM", title="Percentage of correct answers")
 
     # Save the plot to a file
     # plot_file_path = args.plot_file  # Get the file path from command-line arguments
     results_file = args.output_path/'results.png'
-    #plt.savefig(results_file)
-    
-    data = [[results[scope][llm]["details"] for scope in scopes] for llm in llms]
-
-    plt.figure(figsize=[10,5])
-    x = range(len(bleu_scores))
-    plt.plot(x, data["bleu_scores"], label='bleu_scores')
-    #plt.plot(x, did_pass, label='did_pass')
-    plt.plot(x, data["faithfulness_scores"], label='faithfulness_scores')
-    plt.plot(x, data["hallucination_score"], label='hallucination_score')
-    plt.plot(x, data["quazi_exact_score"], label='quazi_exact_score')
-
-    plt.xlabel('Index')
-    plt.ylabel('Score')
-    plt.title('Score Comparison')
     plt.savefig(results_file)
+    
 
 
 
