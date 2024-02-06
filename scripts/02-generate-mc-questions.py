@@ -27,7 +27,7 @@ NUMBER_OF_SPATIAL_REASONING_QUESTIONS = 40
 
 SPATIAL_REASONING_ENCOUNTER_QUESTIONS = [
     (
-        """Is the target_ship {} located on starboard or portside of the own ship? 
+        """Is the target ship {} located on starboard or portside of the own ship? 
         Please select the appropriate option:
         (A) starboard
         (B) portside

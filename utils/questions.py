@@ -23,7 +23,7 @@ def generate_situation_description(situation, nautical_phrasing=True):
     own_length = own_ship.static.length
     own_speed = own_ship.start_pose.speed
     own_course = own_ship.start_pose.course
-    description = f"The own ship, called '{own_name}', is a {own_length} meters long {own_type} moving at a speed of {own_speed} knots on a course of {own_course} degrees. "
+    description = f"The own ship, is a {own_length} meters long {own_type} moving at a speed of {own_speed} knots on a course of {own_course} degrees. "
 
     # Description of the total number of targets in the situation
     no_target_ships = len(situation.target_ship)
@@ -35,7 +35,7 @@ def generate_situation_description(situation, nautical_phrasing=True):
     # Extracting and adding information about each target ship
     for target_ship in situation.target_ship:
         target_id = target_ship.id
-        target_name = target_ship.static.name
+        # target_name = target_ship.static.name
         target_type = target_ship.static.ship_type.value
         target_length = target_ship.static.length
         target_speed = target_ship.start_pose.speed
@@ -44,9 +44,9 @@ def generate_situation_description(situation, nautical_phrasing=True):
         target_range = get_range(own_ship, target_ship)
         
         if nautical_phrasing:
-            description += f"Target {target_id}, '{target_name}', a {target_type} of {target_length} meters, making {target_speed} knots on a course of {target_course}°. Target ship {target_id} lies {target_range} nautical miles off, bearing {target_relative_bearing}° relative. "
+            description += f"Target ship {target_id}, a {target_type} of {target_length} meters, making {target_speed} knots on a course of {target_course} degrees. Target ship {target_id} lies {target_range} nautical miles off, bearing {target_relative_bearing} degrees relative. "
         else:
-            description += f" Target ship {target_id}, called '{target_name}', is a {target_length} meters long {target_type} moving at a speed of {target_speed} knots on a course of {target_course} degrees.  This target ship {target_id} has a range of {target_range} nautical miles and relative bearing of {target_relative_bearing} degrees with respect to the own ship."
+            description += f" Target ship {target_id}, is a {target_length} meters long {target_type} moving at a speed of {target_speed} knots on a course of {target_course} degrees.  This target ship {target_id} has a range of {target_range} nautical miles and relative bearing of {target_relative_bearing} degrees with respect to the own ship."
     return description.strip()
 
 

@@ -5,3 +5,4 @@ python-dotenv
 tqdm
 seaborn
 deepeval
+retry

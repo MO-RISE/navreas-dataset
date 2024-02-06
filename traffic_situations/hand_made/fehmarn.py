@@ -6,9 +6,9 @@ Ship 3 has a course of 315 degrees and a speed of 10 knots.
 Ship 1 is at a relative bearing of 180 degrees with respect to ship 2 and a distance of 1 nautical mile.
 Ship 3 is at a relative bearing of 45 degrees with respect to ship 2 and a distance of 1 nautical mile. 
 There is a traffic separation scheme north of ship 1 and 2 and at northwest of ship 3.
-There is a restriced area south of ship 2 and west of ship 3.
-Ship 1 and 2 monitor an straight eastboudn route. 
-Ship 3 monitors a route that turns west between the traffic seperation scheme area and the restricted area.
+There is a restricted area south of ship 2 and west of ship 3.
+Ship 1 and 2 monitor a straight eastbound route. 
+Ship 3 monitors a route that turns west between the traffic separation scheme area and the restricted area.
 
 """
 
@@ -109,7 +109,7 @@ questions = [
         },
         {
             'text':"""What is the preferred action by ship 2 to resolve its situation with ship 3? Please select the appropriate option:
-            (A) ship 2 alters her course to starbord to cross astern of ship 3 but keeps clear of the restricted area
+            (A) ship 2 alters her course to starboard to cross astern of ship 3 but keeps clear of the restricted area
             (B) ship 2 alters her course to portside to cross ahead of ship 3 but keeps clear of the entering the wrong lane in the traffic separation scheme
             (C) ship 2 reduces her speed to let ship 3 pass
             (D) ship 2 waits for ship 3 to take an action

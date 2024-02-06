@@ -123,3 +123,13 @@ The following questions describe the roadmap of this dataset. Some of this quest
 - Consider the restrictions and limitations of surrounding vessels.
 
 \*Missing at the moment
+
+# Prompts used in the report
+
+```
+python 03-evaluate-llms.py ../questions/spatial_relationship_and_estimation_of_motion.jsonl ../questions/scene_understanding.jsonl ../questions/colreg_compliance_and_good_seamanship.jsonl --llms  mistralai/mistral-7b-instruct open-orca/mistral-7b-openorca openai/gpt-3.5-turbo openai/gpt-4-turbo-preview google/gemini-pro anthropic/claude-2 --output_name base-results
+```
+
+```
+python 03-evaluate-llms.py ../questions/spatial_relationship_and_estimation_of_motion.jsonl ../questions/scene_understanding.jsonl ../questions/colreg_compliance_and_good_seamanship.jsonl --llms openai/gpt-4-turbo-preview openai/gpt-4-vision-preview google/gemini-pro google/gemini-pro-vision --output_name base-results-vision  --use-images  openai/gpt-4-vision-preview google/gemini-pro-vision
+```

@@ -11,6 +11,7 @@ from pathlib import Path
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor
 
+from retry import retry
 import requests
 import seaborn as sns
 from tqdm import tqdm
@@ -58,6 +59,7 @@ def prepare_prompts(questions, llm):
 
     return prompts, answers
 
+@retry(tries=3, delay=5)
 def prompt_llm(prompt, llm_model, temperature, seed):
     check_prompt(prompt)
     response: requests.Response = requests.post(
@@ -103,6 +105,32 @@ match_funcs = {
     "fuzzy": match_fuzzy,
 }
 
+def format_string(input_string, max_line_length=20):
+    # Replace underscores with spaces
+    formatted_string = input_string.replace("_", " ")
+    
+    # Split the string into words
+    words = formatted_string.split()
+    
+    # Initialize an empty string and a temporary line string
+    result_string = ""
+    temp_line = ""
+    
+    # Iterate over the words
+    for word in words:
+        # Check if adding the next word exceeds the max line length
+        if len(temp_line + word) > max_line_length:
+            # If so, append the temp line to the result string and reset it
+            result_string += temp_line.strip() + "\n"
+            temp_line = word + " "  # Start a new line with the current word
+        else:
+            # If not, continue adding words to the temp line
+            temp_line += word + " "
+    
+    # Add the last line to the result string
+    result_string += temp_line.strip()
+    
+    return result_string
 
 def evaluate_llms():
     match_func = match_funcs[args.match]
@@ -152,29 +180,37 @@ def evaluate_llms():
 
             results[path.stem].update({llm: {"score": score, "details": details}})
 
-        results_file = args.output_path/'results.json'
+        results_name = 'results.json' if args.output_name == None else args.output_name + '.json' 
+        results_file = args.output_path/results_name
         with results_file.open("w") as f_handle:
             json.dump(results, f_handle, sort_keys=True, indent=4)
 
     scopes = list(results.keys())
+
     llms = args.llms
 
     data = [[results[scope][llm]["score"] for scope in scopes] for llm in llms]
+
+    plt.figure(figsize=(10, 8)) 
 
     ax = sns.heatmap(
         data,
         vmin=0,
         vmax=100,
-        annot=True,
+        annot=True, 
         fmt=".1f",
-        xticklabels=scopes,
+        xticklabels=[format_string(scope) for scope in scopes],
         yticklabels=llms,
     )
     ax.set(xlabel="Scope", ylabel="LLM", title="Percentage of correct answers")
 
+    # Adjust layout to prevent labels from being cropped
+    plt.tight_layout()      
+
     # Save the plot to a file
     # plot_file_path = args.plot_file  # Get the file path from command-line arguments
-    results_file = args.output_path/'results.png'
+    results_name = 'results.png' if args.output_name == None else args.output_name + '.png' 
+    results_file = args.output_path/results_name
     plt.savefig(results_file)
 
 
@@ -231,6 +267,12 @@ if __name__ == "__main__":
         type=Path,
         default=Path('./'),
         help="Path to output details about the evaluation in json format to. Defaults to current directory.",
+    )
+
+    parser.add_argument(
+        "--output_name",
+        type=str,
+        help="Give a name to the output files."
     )
 
     parser.add_argument("--temperature", type=float, default=0.2)
